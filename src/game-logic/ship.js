@@ -1,7 +1,7 @@
 export default function Ship(length) {
   const size = length;
   let health = size;
-  let isSunk = false;
+  let isSunk = size === 0 ? true : false;
 
   const getHealth = () => {
     return health;
@@ -12,11 +12,11 @@ export default function Ship(length) {
   };
 
   const hit = () => {
-    if (health === 0) {
-      isSunk = true;
-    }
     if (!isSunk) {
       health--;
+      if (health === 0) {
+        isSunk = true;
+      }
     }
   };
 
