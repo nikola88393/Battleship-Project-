@@ -60,7 +60,9 @@ describe("gameboard executes correctly", () => {
     expect(board.getGridPlayer()[2][0].ship.getIsSunk()).toEqual(false);
 
     board.hit(1, 0);
-    board.hit(2, 0);
+    expect(() => {
+      board.hit(2, 0);
+    }).toThrow("Game over");
     expect(board.getGridPlayer()[0][0].ship.getHealth()).toEqual(0);
     expect(board.getGridPlayer()[1][0].ship.getHealth()).toEqual(0);
     expect(board.getGridPlayer()[2][0].ship.getHealth()).toEqual(0);

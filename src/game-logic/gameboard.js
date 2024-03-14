@@ -1,6 +1,10 @@
 import Ship from "./ship.js";
 
 export default function gameboard() {
+  //The possible hits you can make are 17, because there are
+  //are five ships that have health as follows: 5, 4, 3, 3, 2.
+  //When this number hits 0, all ships will be sunk, therefor the game ends
+  let possibleHits = 3;
   //IIFE that creates the grid object
   //it consists of a 2D array filled with objects that
   //contain the properies 'ship' and 'hit'
@@ -76,6 +80,13 @@ export default function gameboard() {
     }
   };
 
+  const updatePossibleHits = () => {
+    possibleHits--;
+    if (!possibleHits) {
+      //implement logic later on
+      throw "Game over";
+    }
+  };
   //Cheks if the given coordinates have been hit, and if there is a ship.
   //It marks the ship and the cell as hit. The way that the mechanic works is
   //a ship that is set on several adjacent cells is a single object assigned to
@@ -89,6 +100,11 @@ export default function gameboard() {
         gridPlayer.grid[x][y].ship.hit();
       }
       gridPlayer.grid[x][y].isHit = true;
+      try {
+        updatePossibleHits();
+      } catch (err) {
+        throw err;
+      }
     } else {
       throw "Cell already attacked and marked as hit";
     }
