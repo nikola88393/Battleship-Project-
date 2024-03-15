@@ -2,7 +2,7 @@ import Player from "./player.js";
 
 describe("Player factory works", () => {
   let player = Player();
-  it("places ships on the board", () => {
+  it("places ships on the board while keeping constraints", () => {
     player.setShipsToBoard(0, 0);
     expect(player.getPlayerBoard()[0][0].ship).not.toBeNull();
     expect(player.getPlayerBoard()[1][0].ship).not.toBeNull();
@@ -25,6 +25,11 @@ describe("Player factory works", () => {
     expect(player.getPlayerBoard()[1][5].ship).not.toBeNull();
     expect(player.getPlayerBoard()[2][5].ship).not.toBeNull();
     expect(player.getPlayerBoard()[3][5].ship).not.toBeNull();
+
+    //Function throws if there is a ship placed in the cell
+    expect(() => {
+      player.setShipsToBoard(1, 5);
+    }).toThrow();
 
     player.setShipsToBoard(1, 6);
     expect(player.getPlayerBoard()[1][6].ship).not.toBeNull();
