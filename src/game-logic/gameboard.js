@@ -4,7 +4,7 @@ export default function gameboard() {
   //The possible hits you can make are 17, because there are
   //are five ships that have health as follows: 5, 4, 3, 3, 2.
   //When this number hits 0, all ships will be sunk, therefor the game ends
-  let possibleHits = 3;
+  let possibleHits = 17;
   //IIFE that creates the grid object
   //it consists of a 2D array filled with objects that
   //contain the properies 'ship' and 'hit'
@@ -60,17 +60,17 @@ export default function gameboard() {
     return true;
   };
 
-  const placePlayerShip = (shipSize, orientation, x, y) => {
-    let ship = Ship(shipSize);
+  const placePlayerShip = (ship, orientation, x, y) => {
+    // let ship = Ship(shipSize);
     try {
-      if (checkCoordinates(shipSize, orientation, x, y)) {
+      if (checkCoordinates(ship.size, orientation, x, y)) {
         if (orientation === "h") {
-          for (let i = y; i < y + shipSize; i++) {
+          for (let i = y; i < y + ship.size; i++) {
             gridPlayer.grid[x][i].ship = ship;
           }
         }
         if (orientation === "v") {
-          for (let i = x; i < x + shipSize; i++) {
+          for (let i = x; i < x + ship.size; i++) {
             gridPlayer.grid[i][y].ship = ship;
           }
         }
