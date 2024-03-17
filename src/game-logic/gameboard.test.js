@@ -18,10 +18,10 @@ describe("gameboard executes correctly", () => {
     expect(board.getGridPlayer()[0][4].ship).toBeNull();
 
     expect(() => {
-      board.placePlayerShip(Ship(3), "h", 0, 7);
+      board.placePlayerShip(Ship(3), "h", 0, 8);
     }).toThrow("Cannot place ship horizontally. It goes out of bounds.");
     expect(() => {
-      board.placePlayerShip(Ship(3), "v", 7, 0);
+      board.placePlayerShip(Ship(3), "v", 8, 0);
     }).toThrow("Cannot place ship vertically. It goes out of bounds.");
     expect(() => {
       board.placePlayerShip(Ship(3), "h", 10, 10);

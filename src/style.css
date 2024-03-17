@@ -3,10 +3,6 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    min-height: 100%;
-    
-}
 header {
     display: flex;
     align-items: center;
@@ -21,12 +17,28 @@ header {
     justify-content: center;
     height: 100%;
     width: 100%;
+    gap: 30px;
+}
+.gameControls{
+    border: 1px solid red;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 .grid {
     display: grid;
     grid-template-columns: repeat(10, 50px);
     grid-template-rows: repeat(10, 50px);
+    padding: 10px;
+    border: 1px solid red;
 }
 .cell {
     border: 1px solid red;
+}
+.cell:hover{
+    background-color: aqua;
+}
+.cell.ship{
+    background-color: red;
 }

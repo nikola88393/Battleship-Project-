@@ -13,10 +13,10 @@ export default function Player() {
   const getPlayerBoard = () => board.getGridPlayer();
 
   // eslint-disable-next-line consistent-return
-  const setShipsToBoard = (x, y) => {
+  const setShipsToBoard = (x, y, orientation) => {
     try {
       if (ships[0]) {
-        board.placePlayerShip(ships[0], "v", x, y);
+        board.placePlayerShip(ships[0], orientation, x, y);
         ships.shift(0);
       } else {
         return "All ships placed";

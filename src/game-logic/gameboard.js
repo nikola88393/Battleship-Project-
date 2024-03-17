@@ -31,11 +31,11 @@ export default function gameboard() {
       throw new Error("Coordinates are out of bounds of the board");
     }
 
-    if (orientation === "h" && y + shipSize > 9) {
+    if (orientation === "h" && y + shipSize > 10) {
       throw new Error("Cannot place ship horizontally. It goes out of bounds.");
     }
 
-    if (orientation === "v" && x + shipSize > 9) {
+    if (orientation === "v" && x + shipSize > 10) {
       throw new Error("Cannot place ship vertically. It goes out of bounds.");
     }
 
