@@ -116,20 +116,3 @@ export default function gameboard() {
     hit,
   };
 }
-
-// let board = gameboard();
-// board.placePlayerShip(5, "h", 1, 1);
-// board.placePlayerShip(5, "h", 2, 4);
-// board.placePlayerShip(3, "h", 3, 2);
-// board.placePlayerShip(3, "v", 0, 0);
-// // board.placePlayerShip(4, "v", 3, 4);
-// // console.log(board.getGridPlayer());
-// // board.hit(1, 1);
-// // board.hit(1, 2);
-// // board.hit(1, 3);
-// // board.hit(1, 4);
-// // board.hit(1, 5);
-// // board.hit(4, 5);
-// // board.hit(2, 3);
-// // board.hit(3, 4);
-// console.log(board.getGridPlayer());

@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100%;
+    
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+#gameContainer{
+    display: flex;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+}
+.cell {
+    border: 1px solid red;
+}
