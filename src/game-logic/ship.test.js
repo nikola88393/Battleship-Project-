@@ -8,7 +8,7 @@ describe("Ship factory function", () => {
   });
 
   it("method hit checks if ship is sunk and adjusts health if not", () => {
-    let ship3 = Ship(3);
+    const ship3 = Ship(3);
 
     expect(ship3.size).toBe(3);
     expect(ship3.getHealth()).toBe(3);
@@ -22,7 +22,7 @@ describe("Ship factory function", () => {
     expect(ship3.getHealth()).toBe(0);
     expect(ship3.size).toBe(3);
 
-    let ship0 = Ship(0);
+    const ship0 = Ship(0);
     ship0.hit();
 
     expect(ship0).toHaveProperty("size", 0);

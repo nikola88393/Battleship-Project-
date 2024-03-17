@@ -12,14 +12,14 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
     },
     "overrides": [
-        {
-          "files": ["tests/**/*"],
-          "plugins": ["jest"],
-          "env": {
-            "jest/globals": true
-          }
+      {
+        "files": ["tests/**/*", "**/*.test.js"],
+        "env": {
+          "jest": true
         }
-      ]
+      }
+    ]
 }

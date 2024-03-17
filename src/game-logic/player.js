@@ -1,5 +1,5 @@
-import Ship from "./ship.js";
-import gameboard from "./gameboard.js";
+import Ship from "./ship";
+import gameboard from "./gameboard";
 
 export default function Player() {
   const board = gameboard();
@@ -10,9 +10,9 @@ export default function Player() {
     Ship(3), // submarine
     Ship(2), // destroyer
   ];
-  const getPlayerBoard = () => {
-    return board.getGridPlayer();
-  };
+  const getPlayerBoard = () => board.getGridPlayer();
+
+  // eslint-disable-next-line consistent-return
   const setShipsToBoard = (x, y) => {
     try {
       if (ships[0]) {
@@ -22,7 +22,7 @@ export default function Player() {
         return "All ships placed";
       }
     } catch (err) {
-      throw err;
+      throw new Error(err);
     }
   };
 

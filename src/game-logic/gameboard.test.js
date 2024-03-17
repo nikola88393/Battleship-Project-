@@ -2,7 +2,7 @@ import gameboard from "./gameboard";
 import Ship from "./ship";
 
 describe("gameboard executes correctly", () => {
-  let board = gameboard();
+  const board = gameboard();
 
   it("places ships on the grid correctly", () => {
     board.placePlayerShip(Ship(3), "v", 0, 0);
@@ -43,7 +43,7 @@ describe("gameboard executes correctly", () => {
     expect(() => {
       board.hit(10, 10);
     }).toThrow("Coordinates are out of bounds of the board");
-    let shipObj = board.getGridPlayer()[0][0].ship;
+    const shipObj = board.getGridPlayer()[0][0].ship;
     expect(
       board.getGridPlayer()[1][0].ship && board.getGridPlayer()[2][0].ship
     ).toMatchObject(shipObj);
@@ -61,8 +61,8 @@ describe("gameboard executes correctly", () => {
     expect(board.getGridPlayer()[2][0].ship.getIsSunk()).toEqual(false);
 
     board.hit(1, 0);
-    //The below test works, but is dependant on a hard coded varibale that I changed
-    //just for the test to pass
+    // The below test works, but is dependant on a hard coded varibale that I changed
+    // just for the test to pass
     // expect(() => {
     board.hit(2, 0);
     // }).toThrow("Game over");

@@ -1,20 +1,18 @@
-import Ship from "./ship.js";
-
 export default function gameboard() {
-  //The possible hits you can make are 17, because there are
-  //are five ships that have health as follows: 5, 4, 3, 3, 2.
-  //When this number hits 0, all ships will be sunk, therefor the game ends
+  // The possible hits you can make are 17, because there are
+  // are five ships that have health as follows: 5, 4, 3, 3, 2.
+  // When this number hits 0, all ships will be sunk, therefor the game ends
   let possibleHits = 17;
-  //IIFE that creates the grid object
-  //it consists of a 2D array filled with objects that
-  //contain the properies 'ship' and 'hit'
-  let gridPlayer = (function () {
-    let board = {
+  // IIFE that creates the grid object
+  // it consists of a 2D array filled with objects that
+  // contain the properies 'ship' and 'hit'
+  const gridPlayer = (function createGrid() {
+    const board = {
       grid: [],
       areAllSunk: false,
     };
     for (let i = 0; i < 10; i++) {
-      let array = [];
+      const array = [];
       for (let j = 0; j < 10; j++) {
         array.push({
           ship: null,
@@ -26,33 +24,35 @@ export default function gameboard() {
     return board;
   })();
 
-  const getGridPlayer = () => {
-    return gridPlayer.grid;
-  };
+  const getGridPlayer = () => gridPlayer.grid;
 
   const checkCoordinates = (shipSize, orientation, x, y) => {
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
-      throw "Coordinates are out of bounds of the board";
+      throw new Error("Coordinates are out of bounds of the board");
     }
 
     if (orientation === "h" && y + shipSize > 9) {
-      throw "Cannot place ship horizontally. It goes out of bounds.";
+      throw new Error("Cannot place ship horizontally. It goes out of bounds.");
     }
 
     if (orientation === "v" && x + shipSize > 9) {
-      throw "Cannot place ship vertically. It goes out of bounds.";
+      throw new Error("Cannot place ship vertically. It goes out of bounds.");
     }
 
     if (orientation === "h") {
       for (let i = y; i < y + shipSize; i++) {
         if (gridPlayer.grid[x][i].ship !== null) {
-          throw "Cannot place ship. There is already a ship in the specified area.";
+          throw new Error(
+            "Cannot place ship. There is already a ship in the specified area."
+          );
         }
       }
     } else {
       for (let i = x; i < x + shipSize; i++) {
         if (gridPlayer.grid[i][y].ship !== null) {
-          throw "Cannot place ship. There is already a ship in the specified area.";
+          throw new Error(
+            "Cannot place ship. There is already a ship in the specified area."
+          );
         }
       }
     }
@@ -76,24 +76,24 @@ export default function gameboard() {
         }
       }
     } catch (error) {
-      throw error;
+      throw new Error(error);
     }
   };
 
   const updatePossibleHits = () => {
-    possibleHits--;
+    possibleHits -= 1;
     if (!possibleHits) {
-      //implement logic later on
-      throw "Game over";
+      // implement logic later on
+      throw new Error("Game over");
     }
   };
-  //Cheks if the given coordinates have been hit, and if there is a ship.
-  //It marks the ship and the cell as hit. The way that the mechanic works is
-  //a ship that is set on several adjacent cells is a single object assigned to
-  //to multiple coordinates, with each hit,the health of the object decreases.
+  // Cheks if the given coordinates have been hit, and if there is a ship.
+  // It marks the ship and the cell as hit. The way that the mechanic works is
+  // a ship that is set on several adjacent cells is a single object assigned to
+  // to multiple coordinates, with each hit,the health of the object decreases.
   const hit = (x, y) => {
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
-      throw "Coordinates are out of bounds of the board";
+      throw new Error("Coordinates are out of bounds of the board");
     }
     if (!gridPlayer.grid[x][y].isHit) {
       if (gridPlayer.grid[x][y].ship !== null) {
@@ -103,10 +103,10 @@ export default function gameboard() {
       try {
         updatePossibleHits();
       } catch (err) {
-        throw err;
+        throw new Error(err);
       }
     } else {
-      throw "Cell already attacked and marked as hit";
+      throw new Error("Cell already attacked and marked as hit");
     }
   };
 

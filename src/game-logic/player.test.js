@@ -1,7 +1,7 @@
-import Player from "./player.js";
+import Player from "./player";
 
 describe("Player factory works", () => {
-  let player = Player();
+  const player = Player();
   it("places ships on the board while keeping constraints", () => {
     player.setShipsToBoard(0, 0);
     expect(player.getPlayerBoard()[0][0].ship).not.toBeNull();
@@ -26,7 +26,7 @@ describe("Player factory works", () => {
     expect(player.getPlayerBoard()[2][5].ship).not.toBeNull();
     expect(player.getPlayerBoard()[3][5].ship).not.toBeNull();
 
-    //Function throws if there is a ship placed in the cell
+    // Function throws if there is a ship placed in the cell
     expect(() => {
       player.setShipsToBoard(1, 5);
     }).toThrow();
@@ -35,8 +35,8 @@ describe("Player factory works", () => {
     expect(player.getPlayerBoard()[1][6].ship).not.toBeNull();
     expect(player.getPlayerBoard()[2][6].ship).not.toBeNull();
 
-    //After placing all 5 ships the function returns that all ships
-    //have been placed even if the coordinates are out of bounds
+    // After placing all 5 ships the function returns that all ships
+    // have been placed even if the coordinates are out of bounds
     expect(player.setShipsToBoard(1, 7)).toBe("All ships placed");
     expect(player.setShipsToBoard(10, 10)).toBe("All ships placed");
   });

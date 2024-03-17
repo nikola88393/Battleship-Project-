@@ -1,19 +1,15 @@
 export default function Ship(length) {
   const size = length;
   let health = size;
-  let isSunk = size === 0 ? true : false;
+  let isSunk = size === 0;
 
-  const getHealth = () => {
-    return health;
-  };
+  const getHealth = () => health;
 
-  const getIsSunk = () => {
-    return isSunk;
-  };
+  const getIsSunk = () => isSunk;
 
   const hit = () => {
     if (!isSunk) {
-      health--;
+      health -= 1;
       if (health === 0) {
         isSunk = true;
       }
