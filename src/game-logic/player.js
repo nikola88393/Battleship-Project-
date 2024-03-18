@@ -15,10 +15,15 @@ export default function Player() {
   // eslint-disable-next-line consistent-return
   const setShipsToBoard = (x, y, orientation) => {
     try {
+      let result;
       if (ships[0]) {
-        return board.placePlayerShip(ships.shift(0), orientation, x, y);
+        result = board.placePlayerShip(ships[0], orientation, x, y);
+        ships.shift();
+      } else {
+        result = "All ships placed";
       }
-      return "All ships placed";
+
+      return result;
     } catch (err) {
       throw new Error(err);
     }
