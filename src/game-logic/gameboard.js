@@ -68,13 +68,35 @@ export default function gameboard() {
           for (let i = y; i < y + ship.size; i++) {
             gridPlayer.grid[x][i].ship = ship;
           }
+          return {
+            start: {
+              x,
+              y,
+            },
+            end: {
+              x,
+              y: y + ship.size - 1,
+            },
+          };
         }
-        if (orientation === "v") {
-          for (let i = x; i < x + ship.size; i++) {
-            gridPlayer.grid[i][y].ship = ship;
-          }
+        // for vertical orientation
+        // if (orientation === "v") {
+        for (let i = x; i < x + ship.size; i++) {
+          gridPlayer.grid[i][y].ship = ship;
         }
+        return {
+          start: {
+            x,
+            y,
+          },
+          end: {
+            x: x + ship.size - 1,
+            y,
+          },
+        };
+        // }
       }
+      return null;
     } catch (error) {
       throw new Error(error);
     }

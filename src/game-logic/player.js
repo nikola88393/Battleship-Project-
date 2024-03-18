@@ -16,11 +16,9 @@ export default function Player() {
   const setShipsToBoard = (x, y, orientation) => {
     try {
       if (ships[0]) {
-        board.placePlayerShip(ships[0], orientation, x, y);
-        ships.shift(0);
-      } else {
-        return "All ships placed";
+        return board.placePlayerShip(ships.shift(0), orientation, x, y);
       }
+      return "All ships placed";
     } catch (err) {
       throw new Error(err);
     }

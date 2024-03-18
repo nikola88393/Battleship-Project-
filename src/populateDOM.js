@@ -29,16 +29,13 @@ export function placeShips(player) {
         document.getElementById("switchOrientation").dataset;
       const x = parseInt(id.slice(0, 1), 10);
       const y = parseInt(id.slice(1), 10);
-      player.setShipsToBoard(x, y, orientation);
-      const array = player.getPlayerBoard();
-      for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++) {
-          if (array[i][j].ship !== null) {
-            const cellWithShip = document.getElementById(
-              `player${i.toString()}${j.toString()}`
-            );
-            cellWithShip.classList.add("ship");
-          }
+      const coordinatesToMark = player.setShipsToBoard(x, y, orientation);
+      const { start, end } = coordinatesToMark;
+
+      for (let i = start.x; i <= end.x; i++) {
+        for (let j = start.y; j <= end.y; j++) {
+          const cellWithShip = document.getElementById(`player${i}${j}`);
+          cellWithShip.classList.add("ship");
         }
       }
     });
