@@ -5,7 +5,7 @@ export default function gameboard() {
   // The possible hits you can make are 17, because there are
   // are five ships that have health as follows: 5, 4, 3, 3, 2.
   // When this number hits 0, all ships will be sunk, therefor the game ends
-  let possibleHits = 17;
+  // const possibleHits = 17;
   // IIFE that creates the grid object
   // it consists of a 2D array filled with objects that
   // contain the properies 'ship' and 'hit'
@@ -151,14 +151,14 @@ export default function gameboard() {
     return coordinates;
   };
 
-  const updatePossibleHits = () => {
-    possibleHits -= 1;
-    if (!possibleHits) {
-      // implement logic later on
-      updateErrorDisplay("Game over");
-      // throw new Error("Game over");
-    }
-  };
+  // const updatePossibleHits = () => {
+  //   possibleHits -= 1;
+  //   if (!possibleHits) {
+  //     // implement logic later on
+  //     updateErrorDisplay("Game over");
+  //     // throw new Error("Game over");
+  //   }
+  // };
   // Cheks if the given coordinates have been hit, and if there is a ship.
   // It marks the ship and the cell as hit. The way that the mechanic works is
   // a ship that is set on several adjacent cells is a single object assigned to
@@ -168,21 +168,19 @@ export default function gameboard() {
       updateErrorDisplay("Coordinates are out of bounds of the board");
       // throw new Error("Coordinates are out of bounds of the board");
     }
-    if (!gridPlayer.grid[x][y].isHit) {
-      if (gridPlayer.grid[x][y].ship !== null) {
-        gridPlayer.grid[x][y].ship.hit();
+    if (!gridComputer.grid[x][y].isHit) {
+      if (gridComputer.grid[x][y].ship !== null) {
+        gridComputer.grid[x][y].ship.hit();
       }
-      gridPlayer.grid[x][y].isHit = true;
-      try {
-        updatePossibleHits();
-      } catch (err) {
-        updateErrorDisplay(err);
-        // throw new Error(err);
-      }
+      gridComputer.grid[x][y].isHit = true;
+      // updatePossibleHits();
+      // throw new Error(err);
     } else {
       updateErrorDisplay("Cell already attacked and marked as hit");
       // throw new Error("Cell already attacked and marked as hit");
     }
+    console.log(gridComputer.grid[x][y].isHit);
+    console.log(gridComputer.grid[x][y].ship.getHealth());
   };
 
   return {

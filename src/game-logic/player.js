@@ -1,6 +1,6 @@
 import Ship from "./ship";
 import gameboard from "./gameboard";
-import { disableShipPlacement } from "../populateDOM";
+import { disableShipPlacement, enableAttacks } from "../populateDOM";
 
 export default function Player() {
   const board = gameboard();
@@ -13,7 +13,7 @@ export default function Player() {
   ];
   const getPlayerBoard = () => board.getGridPlayer();
 
-  const setShipsToBoard = (x, y, orientation) => {
+  function setShipsToBoard(x, y, orientation) {
     let result;
     if (ships[0]) {
       if (ships.length === 1) {
@@ -23,6 +23,7 @@ export default function Player() {
         } else {
           ships.shift();
           disableShipPlacement();
+          enableAttacks(this);
         }
       } else {
         result = board.placePlayerShip(ships[0], orientation, x, y);
@@ -37,8 +38,11 @@ export default function Player() {
     }
 
     return result;
-  };
+  }
 
+  const hit = (x, y) => {
+    board.hit(x, y);
+  };
   const setComputerShipsToBoard = () => {
     const coordinates = board.generateRandomCoordinates();
     return coordinates;
@@ -48,5 +52,6 @@ export default function Player() {
     getPlayerBoard,
     setShipsToBoard,
     setComputerShipsToBoard,
+    hit,
   };
 }

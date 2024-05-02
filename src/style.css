@@ -48,3 +48,7 @@ header {
 #errorDisplay{
     border: 1px solid red;
 }
+.cellComputer.hit{
+    content: "X";
+    background-color: aqua;
+}

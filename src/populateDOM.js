@@ -86,3 +86,19 @@ export function disableShipPlacement() {
     cell.replaceWith(cell.cloneNode(true));
   });
 }
+
+export function enableAttacks(player) {
+  const cells = document.querySelectorAll(".cellComputer");
+  cells.forEach((cell) => {
+    cell.addEventListener("click", () => {
+      const id = cell.id.slice(8);
+      const x = parseInt(id.slice(0, 1), 10);
+      const y = parseInt(id.slice(1), 10);
+      cell.classList.add("hit");
+      player.hit(x, y);
+    });
+  });
+}
+
+// export function renderPlayerBoard(){}
+// export function renderComputerBoard(){}
