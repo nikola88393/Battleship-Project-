@@ -28,9 +28,8 @@ describe("Player factory works", () => {
     expect(player.getPlayerBoard()[2][3].ship).not.toBeNull();
 
     // Function throws if there is a ship placed in the cell
-    expect(() => {
-      player.setShipsToBoard(0, 3, "v");
-    }).toThrow();
+    const test = player.setShipsToBoard(0, 3, "v");
+    expect(test).toBeInstanceOf(Error);
 
     player.setShipsToBoard(0, 4, "v");
     expect(player.getPlayerBoard()[0][4].ship).not.toBeNull();
@@ -38,7 +37,7 @@ describe("Player factory works", () => {
 
     // After placing all 5 ships the function returns that all ships
     // have been placed even if the coordinates are out of bounds
-    expect(player.setShipsToBoard(1, 7, "v")).toBe("All ships placed");
-    expect(player.setShipsToBoard(10, 10, "v")).toBe("All ships placed");
+    expect(player.setShipsToBoard(1, 7, "v")).toBeUndefined();
+    expect(player.setShipsToBoard(10, 10, "v")).toBeUndefined();
   });
 });

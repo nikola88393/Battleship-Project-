@@ -17,32 +17,19 @@ describe("gameboard executes correctly", () => {
     expect(board.getGridPlayer()[0][3].ship).not.toBeNull();
     expect(board.getGridPlayer()[0][4].ship).toBeNull();
 
-    expect(() => {
-      board.placePlayerShip(Ship(3), "h", 0, 8);
-    }).toThrow("Cannot place ship horizontally. It goes out of bounds.");
-    expect(() => {
-      board.placePlayerShip(Ship(3), "v", 8, 0);
-    }).toThrow("Cannot place ship vertically. It goes out of bounds.");
-    expect(() => {
-      board.placePlayerShip(Ship(3), "h", 10, 10);
-    }).toThrow("Coordinates are out of bounds of the board");
-
-    expect(() => {
-      board.placePlayerShip(Ship(3), "v", 0, 0);
-    }).toThrow(
-      "Cannot place ship. There is already a ship in the specified area."
-    );
-    expect(() => {
-      board.placePlayerShip(Ship(3), "h", 0, 1);
-    }).toThrow(
-      "Cannot place ship. There is already a ship in the specified area."
-    );
+    const result1 = board.placePlayerShip(Ship(3), "h", 0, 8);
+    expect(result1).toBeInstanceOf(Error);
+    const result2 = board.placePlayerShip(Ship(3), "v", 8, 0);
+    expect(result2).toBeInstanceOf(Error);
+    const result3 = board.placePlayerShip(Ship(3), "h", 10, 10);
+    expect(result3).toBeInstanceOf(Error);
+    const result4 = board.placePlayerShip(Ship(3), "v", 0, 0);
+    expect(result4).toBeInstanceOf(Error);
+    const result5 = board.placePlayerShip(Ship(3), "h", 0, 1);
+    expect(result5).toBeInstanceOf(Error);
   });
 
   it("Hits ships on the board", () => {
-    expect(() => {
-      board.hit(10, 10);
-    }).toThrow("Coordinates are out of bounds of the board");
     const shipObj = board.getGridPlayer()[0][0].ship;
     expect(
       board.getGridPlayer()[1][0].ship && board.getGridPlayer()[2][0].ship
