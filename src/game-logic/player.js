@@ -1,5 +1,6 @@
 import Ship from "./ship";
 import gameboard from "./gameboard";
+import { updateErrorDisplay } from "../populateDOM";
 
 export default function Player() {
   const board = gameboard();
@@ -18,14 +19,19 @@ export default function Player() {
       let result;
       if (ships[0]) {
         result = board.placePlayerShip(ships[0], orientation, x, y);
-        ships.shift();
+        if (typeof result === "object") {
+          ships.shift();
+        } else {
+          updateErrorDisplay(result);
+        }
       } else {
-        result = "All ships placed";
+        result = null;
       }
 
       return result;
     } catch (err) {
-      throw new Error(err);
+      updateErrorDisplay(err);
+      // throw new Error(err);
     }
   };
 

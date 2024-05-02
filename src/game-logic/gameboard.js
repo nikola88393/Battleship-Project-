@@ -1,3 +1,5 @@
+import { updateErrorDisplay } from "../populateDOM";
+
 export default function gameboard() {
   // The possible hits you can make are 17, because there are
   // are five ships that have health as follows: 5, 4, 3, 3, 2.
@@ -28,20 +30,30 @@ export default function gameboard() {
 
   const checkCoordinates = (shipSize, orientation, x, y) => {
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
+      // updateErrorDisplay("Coordinates are out of bounds of the board");
       throw new Error("Coordinates are out of bounds of the board");
     }
 
     if (orientation === "h" && y + shipSize > 10) {
+      // updateErrorDisplay(
+      //   "Cannot place ship horizontally. It goes out of bounds."
+      // );
       throw new Error("Cannot place ship horizontally. It goes out of bounds.");
     }
 
     if (orientation === "v" && x + shipSize > 10) {
+      // updateErrorDisplay(
+      //   "Cannot place ship vertically. It goes out of bounds."
+      // );
       throw new Error("Cannot place ship vertically. It goes out of bounds.");
     }
 
     if (orientation === "h") {
       for (let i = y; i < y + shipSize; i++) {
         if (gridPlayer.grid[x][i].ship !== null) {
+          // updateErrorDisplay(
+          //   "Cannot place ship. There is already a ship in the specified area."
+          // );
           throw new Error(
             "Cannot place ship. There is already a ship in the specified area."
           );
@@ -50,6 +62,9 @@ export default function gameboard() {
     } else {
       for (let i = x; i < x + shipSize; i++) {
         if (gridPlayer.grid[i][y].ship !== null) {
+          // updateErrorDisplay(
+          //   "Cannot place ship. There is already a ship in the specified area."
+          // );
           throw new Error(
             "Cannot place ship. There is already a ship in the specified area."
           );
@@ -96,17 +111,22 @@ export default function gameboard() {
         };
         // }
       }
-      return null;
+      // return null;
     } catch (error) {
-      throw new Error(error);
+      // updateErrorDisplay(error);
+      // throw new Error(error);
+      return error;
     }
+
+    return null;
   };
 
   const updatePossibleHits = () => {
     possibleHits -= 1;
     if (!possibleHits) {
       // implement logic later on
-      throw new Error("Game over");
+      updateErrorDisplay("Game over");
+      // throw new Error("Game over");
     }
   };
   // Cheks if the given coordinates have been hit, and if there is a ship.
@@ -115,7 +135,8 @@ export default function gameboard() {
   // to multiple coordinates, with each hit,the health of the object decreases.
   const hit = (x, y) => {
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
-      throw new Error("Coordinates are out of bounds of the board");
+      updateErrorDisplay("Coordinates are out of bounds of the board");
+      // throw new Error("Coordinates are out of bounds of the board");
     }
     if (!gridPlayer.grid[x][y].isHit) {
       if (gridPlayer.grid[x][y].ship !== null) {
@@ -125,10 +146,12 @@ export default function gameboard() {
       try {
         updatePossibleHits();
       } catch (err) {
-        throw new Error(err);
+        updateErrorDisplay(err);
+        // throw new Error(err);
       }
     } else {
-      throw new Error("Cell already attacked and marked as hit");
+      updateErrorDisplay("Cell already attacked and marked as hit");
+      // throw new Error("Cell already attacked and marked as hit");
     }
   };
 

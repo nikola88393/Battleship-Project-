@@ -33,12 +33,15 @@ header {
     padding: 10px;
     border: 1px solid red;
 }
-.cell {
+.cellComputer, .cellPlayer {
     border: 1px solid red;
 }
-.cell:hover{
+.cellPlayer:hover{
     background-color: aqua;
 }
-.cell.ship{
+.cellPlayer.ship{
     background-color: red;
+}
+#errorDisplay{
+    border: 1px solid red;
 }
