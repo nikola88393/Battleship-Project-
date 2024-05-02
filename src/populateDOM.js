@@ -37,7 +37,11 @@ export function placeShips(player) {
       const x = parseInt(id.slice(0, 1), 10);
       const y = parseInt(id.slice(1), 10);
       const coordinatesToMark = player.setShipsToBoard(x, y, orientation);
-      if (coordinatesToMark != null) {
+      if (coordinatesToMark === undefined) {
+        updateErrorDisplay("all ships placed");
+      } else if (coordinatesToMark instanceof Error) {
+        updateErrorDisplay(coordinatesToMark);
+      } else {
         const { start, end } = coordinatesToMark;
 
         for (let i = start.x; i <= end.x; i++) {
@@ -46,8 +50,6 @@ export function placeShips(player) {
             cellWithShip.classList.add("ship");
           }
         }
-      } else {
-        updateErrorDisplay("all ships placed");
       }
     });
   });
