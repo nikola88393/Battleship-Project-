@@ -1,17 +1,17 @@
 export function drawGrid() {
   const containerPlayer = document.querySelector(".playerGrid");
-  const containerComputer = document.querySelector(".computerGrid");
+  // const containerComputer = document.querySelector(".computerGrid");
 
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
       const cellPlayer = document.createElement("p");
-      const cellComputer = document.createElement("p");
+      // const cellComputer = document.createElement("p");
       cellPlayer.id = `player${i.toString()}${j.toString()}`;
-      cellComputer.id = `computer${i.toString()}${j.toString()}`;
+      // cellComputer.id = `computer${i.toString()}${j.toString()}`;
       cellPlayer.classList.add("cellPlayer");
-      cellComputer.classList.add("cellComputer");
+      // cellComputer.classList.add("cellComputer");
       containerPlayer.appendChild(cellPlayer);
-      containerComputer.appendChild(cellComputer);
+      // containerComputer.appendChild(cellComputer);
     }
   }
 }

@@ -30,30 +30,20 @@ export default function gameboard() {
 
   const checkCoordinates = (shipSize, orientation, x, y) => {
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
-      // updateErrorDisplay("Coordinates are out of bounds of the board");
       throw new Error("Coordinates are out of bounds of the board");
     }
 
     if (orientation === "h" && y + shipSize > 10) {
-      // updateErrorDisplay(
-      //   "Cannot place ship horizontally. It goes out of bounds."
-      // );
       throw new Error("Cannot place ship horizontally. It goes out of bounds.");
     }
 
     if (orientation === "v" && x + shipSize > 10) {
-      // updateErrorDisplay(
-      //   "Cannot place ship vertically. It goes out of bounds."
-      // );
       throw new Error("Cannot place ship vertically. It goes out of bounds.");
     }
 
     if (orientation === "h") {
       for (let i = y; i < y + shipSize; i++) {
         if (gridPlayer.grid[x][i].ship !== null) {
-          // updateErrorDisplay(
-          //   "Cannot place ship. There is already a ship in the specified area."
-          // );
           throw new Error(
             "Cannot place ship. There is already a ship in the specified area."
           );
@@ -62,9 +52,6 @@ export default function gameboard() {
     } else {
       for (let i = x; i < x + shipSize; i++) {
         if (gridPlayer.grid[i][y].ship !== null) {
-          // updateErrorDisplay(
-          //   "Cannot place ship. There is already a ship in the specified area."
-          // );
           throw new Error(
             "Cannot place ship. There is already a ship in the specified area."
           );
@@ -76,7 +63,6 @@ export default function gameboard() {
   };
 
   const placePlayerShip = (ship, orientation, x, y) => {
-    // let ship = Ship(shipSize);
     try {
       if (checkCoordinates(ship.size, orientation, x, y)) {
         if (orientation === "h") {
@@ -95,7 +81,6 @@ export default function gameboard() {
           };
         }
         // for vertical orientation
-        // if (orientation === "v") {
         for (let i = x; i < x + ship.size; i++) {
           gridPlayer.grid[i][y].ship = ship;
         }
@@ -109,12 +94,8 @@ export default function gameboard() {
             y,
           },
         };
-        // }
       }
-      // return null;
     } catch (error) {
-      // updateErrorDisplay(error);
-      // throw new Error(error);
       return error;
     }
 
