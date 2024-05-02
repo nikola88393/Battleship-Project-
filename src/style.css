@@ -42,6 +42,9 @@ header {
 .cellPlayer.ship{
     background-color: red;
 }
+.cellComputer.ship{
+    background-color: blueviolet;
+}
 #errorDisplay{
     border: 1px solid red;
 }

@@ -17,7 +17,7 @@ export default function Player() {
     if (ships[0]) {
       result = board.placePlayerShip(ships[0], orientation, x, y);
       if (result instanceof Error) {
-        // skip this line if the result of the function calling is an error message
+        // skip the line below if the result of the function calling is an error message
       } else {
         ships.shift();
       }
@@ -28,8 +28,14 @@ export default function Player() {
     return result;
   };
 
+  const setComputerShipsToBoard = () => {
+    const coordinates = board.generateRandomCoordinates();
+    return coordinates;
+  };
+
   return {
     getPlayerBoard,
     setShipsToBoard,
+    setComputerShipsToBoard,
   };
 }

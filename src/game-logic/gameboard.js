@@ -1,4 +1,5 @@
 import { updateErrorDisplay } from "../populateDOM";
+import Ship from "./ship";
 
 export default function gameboard() {
   // The possible hits you can make are 17, because there are
@@ -8,7 +9,7 @@ export default function gameboard() {
   // IIFE that creates the grid object
   // it consists of a 2D array filled with objects that
   // contain the properies 'ship' and 'hit'
-  const gridPlayer = (function createGrid() {
+  const createGrid = () => {
     const board = {
       grid: [],
       areAllSunk: false,
@@ -24,9 +25,12 @@ export default function gameboard() {
       board.grid.push(array);
     }
     return board;
-  })();
+  };
+  const gridPlayer = createGrid();
+  const gridComputer = createGrid();
 
   const getGridPlayer = () => gridPlayer.grid;
+  const getGridComputer = () => gridComputer.grid;
 
   const checkCoordinates = (shipSize, orientation, x, y) => {
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
@@ -102,6 +106,51 @@ export default function gameboard() {
     return null;
   };
 
+  const generateRandomCoordinates = () => {
+    const coordinates = [];
+    const shipSize = [5, 4, 3, 3, 2];
+    while (shipSize.length > 0) {
+      const orientation = Math.random() < 0.5 ? "h" : "v";
+      let hasOverlap = false;
+      let x = 0;
+      let y = 0;
+      if (orientation === "h") {
+        x = Math.floor(Math.random() * 10); // Random row index
+        y = Math.floor(Math.random() * (10 - shipSize[0])); // Random column index within bounds
+        for (let i = y; i < y + shipSize[0]; i++) {
+          if (gridComputer.grid[x][i].ship !== null) {
+            hasOverlap = true;
+          }
+        }
+      } else {
+        x = Math.floor(Math.random() * (10 - shipSize[0])); // Random row index within bounds
+        y = Math.floor(Math.random() * 10); // Random column index
+        for (let i = x; i < x + shipSize[0]; i++) {
+          if (gridComputer.grid[i][y].ship !== null) {
+            hasOverlap = true;
+          }
+        }
+      }
+      if (!hasOverlap) {
+        coordinates.push({ shipSize: shipSize[0], orientation, x, y });
+        const ship = Ship(shipSize[0]);
+
+        if (orientation === "h") {
+          for (let i = y; i < y + shipSize[0]; i++) {
+            gridComputer.grid[x][i].ship = ship;
+          }
+        } else {
+          for (let i = x; i < x + shipSize[0]; i++) {
+            gridComputer.grid[i][y].ship = ship;
+          }
+        }
+
+        shipSize.shift();
+      }
+    }
+    return coordinates;
+  };
+
   const updatePossibleHits = () => {
     possibleHits -= 1;
     if (!possibleHits) {
@@ -138,7 +187,9 @@ export default function gameboard() {
 
   return {
     getGridPlayer,
+    getGridComputer,
     placePlayerShip,
     hit,
+    generateRandomCoordinates,
   };
 }
