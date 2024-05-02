@@ -53,6 +53,7 @@ export function updateErrorDisplay(err = null) {
 
 export function placeShips(player) {
   const cells = document.querySelectorAll(".cellPlayer");
+
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
       const id = cell.id.slice(6);
@@ -76,5 +77,12 @@ export function placeShips(player) {
         }
       }
     });
+  });
+}
+// remove all event listeneners by clonign each cell node
+export function disableShipPlacement() {
+  const cells = document.querySelectorAll(".cellPlayer");
+  cells.forEach((cell) => {
+    cell.replaceWith(cell.cloneNode(true));
   });
 }

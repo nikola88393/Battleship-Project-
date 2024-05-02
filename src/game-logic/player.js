@@ -1,5 +1,6 @@
 import Ship from "./ship";
 import gameboard from "./gameboard";
+import { disableShipPlacement } from "../populateDOM";
 
 export default function Player() {
   const board = gameboard();
@@ -15,11 +16,21 @@ export default function Player() {
   const setShipsToBoard = (x, y, orientation) => {
     let result;
     if (ships[0]) {
-      result = board.placePlayerShip(ships[0], orientation, x, y);
-      if (result instanceof Error) {
-        // skip the line below if the result of the function calling is an error message
+      if (ships.length === 1) {
+        result = board.placePlayerShip(ships[0], orientation, x, y);
+        if (result instanceof Error) {
+          // skip the line below if the result of the function calling is an error message
+        } else {
+          ships.shift();
+          disableShipPlacement();
+        }
       } else {
-        ships.shift();
+        result = board.placePlayerShip(ships[0], orientation, x, y);
+        if (result instanceof Error) {
+          // skip the line below if the result of the function calling is an error message
+        } else {
+          ships.shift();
+        }
       }
     } else {
       result = undefined;
