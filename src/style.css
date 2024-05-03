@@ -40,9 +40,9 @@ header {
 .cellComputer, .cellPlayer {
     border: 1px solid red;
 }
-.cellPlayer:hover{
+/* .cellPlayer:hover{
     background-color: aqua;
-}
+} */
 .cellPlayer.ship{
     background-color: red;
 }
@@ -98,4 +98,8 @@ header {
     width: 400px;
     height: 50px;
     border: 1px solid red;
+}
+
+.hover {
+    background-color: brown;
 }
