@@ -61,6 +61,10 @@ export function placeShips(player) {
 
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
+      // Temporary solution for removing leftover hover class on last ship cells
+      cells.forEach((element) => {
+        element.classList.remove("hover");
+      });
       const id = cell.id.slice(6);
       const { orientation } =
         document.getElementById("switchOrientation").dataset;
