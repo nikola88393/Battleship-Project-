@@ -1,5 +1,10 @@
 import "./style.css";
-import { drawGrid, placeShips, markComputerShips } from "./populateDOM";
+import {
+  drawGrid,
+  placeShips,
+  markComputerShips,
+  winnerDisplayVisibility,
+} from "./populateDOM";
 import player from "./game-logic/player";
 
 // const btn = document.getElementById("switchOrientation");
@@ -11,13 +16,15 @@ function startGame() {
   const coordinatesToMark = player1.setComputerShipsToBoard();
   markComputerShips(coordinatesToMark);
 }
-export default function resetGame() {
+const resetBtn = document.getElementById("resetGame");
+resetBtn.addEventListener("click", () => {
   const grids = document.querySelectorAll(".grid");
   grids.forEach((element) => {
     const grid = element;
     grid.innerHTML = "";
   });
-
+  winnerDisplayVisibility();
   startGame();
-}
+});
+
 startGame();

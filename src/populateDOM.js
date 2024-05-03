@@ -104,6 +104,23 @@ export const updateHitShips = (n) => {
   const hitCell = document.querySelector(`.playerGrid p:nth-child(${n + 1})`);
   hitCell.classList.add("hit");
 };
+
+export const updateWinnerDisplay = (input) => {
+  const winner = document.getElementById("winner");
+  winner.innerHTML = input;
+};
+
+export const winnerDisplayVisibility = () => {
+  const winnerScreen = document.querySelector(".winnerScreen");
+  const computedStyle = window.getComputedStyle(winnerScreen);
+  const display = computedStyle.getPropertyValue("display");
+
+  if (display === "none") {
+    winnerScreen.style.display = "flex";
+  } else {
+    winnerScreen.style.display = "none";
+  }
+};
 const btn = document.getElementById("switchOrientation");
 btn.addEventListener("click", switchOrientation);
 // export function renderPlayerBoard(){}

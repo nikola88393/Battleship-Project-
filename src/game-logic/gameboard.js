@@ -1,5 +1,9 @@
-import { updateErrorDisplay, updateHitShips } from "../populateDOM";
-import resetGame from "../index";
+import {
+  updateErrorDisplay,
+  updateHitShips,
+  updateWinnerDisplay,
+  winnerDisplayVisibility,
+} from "../populateDOM";
 import Ship from "./ship";
 
 export default function gameboard() {
@@ -190,11 +194,14 @@ export default function gameboard() {
 
   const checkForWin = () => {
     if (gridComputer.areAllSunk) {
-      updateErrorDisplay("Player wins");
-      resetGame();
+      updateWinnerDisplay("Player wins");
+      console.log("winner");
+      winnerDisplayVisibility();
+      // resetGame();
     } else if (gridPlayer.areAllSunk) {
-      updateErrorDisplay("COmputer wins");
-      resetGame();
+      updateWinnerDisplay("Computer wins");
+      winnerDisplayVisibility();
+      // resetGame();
     }
   };
   // Cheks if the given coordinates have been hit, and if there is a ship.
@@ -227,7 +234,7 @@ export default function gameboard() {
       gridComputer.grid[x][y].isHit = true;
       // updatePossibleHits();
       // throw new Error(err);
-      checkForWin();
+      // checkForWin();
       updateHitShips(takeRandomComputerHit());
       checkForWin();
     } else {
