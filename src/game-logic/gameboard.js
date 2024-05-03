@@ -171,6 +171,20 @@ export default function gameboard() {
     if (!gridComputer.grid[x][y].isHit) {
       if (gridComputer.grid[x][y].ship !== null) {
         gridComputer.grid[x][y].ship.hit();
+        // Introduce a check that verifies if all ships of the computer board have been sunk
+        const areAllSunk = gridComputer.grid.every((row) =>
+          row.every((cell) => {
+            if (cell.ship) {
+              return cell.ship.getIsSunk();
+            }
+            return true; // Cell doesn't have a ship, so it's effectively "sunk"
+          })
+        );
+
+        if (areAllSunk) {
+          gridComputer.areAllSunk = true;
+          // console.log("all ships have been sunk!");
+        }
       }
       gridComputer.grid[x][y].isHit = true;
       // updatePossibleHits();
@@ -179,8 +193,9 @@ export default function gameboard() {
       updateErrorDisplay("Cell already attacked and marked as hit");
       // throw new Error("Cell already attacked and marked as hit");
     }
-    console.log(gridComputer.grid[x][y].isHit);
-    console.log(gridComputer.grid[x][y].ship.getHealth());
+    // console.log(gridComputer.grid[x][y].isHit);
+    // console.log(gridComputer.grid[x][y].ship.getHealth());
+    // console.log(gridComputer.grid[x][y].ship.getIsSunk());
   };
 
   return {

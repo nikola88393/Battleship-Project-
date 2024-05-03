@@ -1,2 +1,1042 @@
-(()=>{"use strict";var e={208:(e,n,r)=>{r.d(n,{A:()=>s});var t=r(354),o=r.n(t),a=r(314),i=r.n(a)()(o());i.push([e.id,"*{\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\nheader {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 30px;\n}\n#gameContainer{\n    display: flex;\n    border: 1px solid red;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100%;\n    width: 100%;\n    gap: 30px;\n}\n.gameControls{\n    border: 1px solid red;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n}\n.grid {\n    display: grid;\n    grid-template-columns: repeat(10, 50px);\n    grid-template-rows: repeat(10, 50px);\n    padding: 10px;\n    border: 1px solid red;\n}\n.cellComputer, .cellPlayer {\n    border: 1px solid red;\n}\n.cellPlayer:hover{\n    background-color: aqua;\n}\n.cellPlayer.ship{\n    background-color: red;\n}\n#errorDisplay{\n    border: 1px solid red;\n}","",{version:3,sources:["webpack://./src/style.css"],names:[],mappings:"AAAA;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,aAAa;AACjB;AACA;IACI,aAAa;IACb,qBAAqB;IACrB,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,YAAY;IACZ,WAAW;IACX,SAAS;AACb;AACA;IACI,qBAAqB;IACrB,aAAa;IACb,aAAa;IACb,sBAAsB;IACtB,SAAS;AACb;AACA;IACI,aAAa;IACb,uCAAuC;IACvC,oCAAoC;IACpC,aAAa;IACb,qBAAqB;AACzB;AACA;IACI,qBAAqB;AACzB;AACA;IACI,sBAAsB;AAC1B;AACA;IACI,qBAAqB;AACzB;AACA;IACI,qBAAqB;AACzB",sourcesContent:["*{\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\nheader {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 30px;\n}\n#gameContainer{\n    display: flex;\n    border: 1px solid red;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100%;\n    width: 100%;\n    gap: 30px;\n}\n.gameControls{\n    border: 1px solid red;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n}\n.grid {\n    display: grid;\n    grid-template-columns: repeat(10, 50px);\n    grid-template-rows: repeat(10, 50px);\n    padding: 10px;\n    border: 1px solid red;\n}\n.cellComputer, .cellPlayer {\n    border: 1px solid red;\n}\n.cellPlayer:hover{\n    background-color: aqua;\n}\n.cellPlayer.ship{\n    background-color: red;\n}\n#errorDisplay{\n    border: 1px solid red;\n}"],sourceRoot:""}]);const s=i},314:e=>{e.exports=function(e){var n=[];return n.toString=function(){return this.map((function(n){var r="",t=void 0!==n[5];return n[4]&&(r+="@supports (".concat(n[4],") {")),n[2]&&(r+="@media ".concat(n[2]," {")),t&&(r+="@layer".concat(n[5].length>0?" ".concat(n[5]):""," {")),r+=e(n),t&&(r+="}"),n[2]&&(r+="}"),n[4]&&(r+="}"),r})).join("")},n.i=function(e,r,t,o,a){"string"==typeof e&&(e=[[null,e,void 0]]);var i={};if(t)for(var s=0;s<this.length;s++){var c=this[s][0];null!=c&&(i[c]=!0)}for(var l=0;l<e.length;l++){var d=[].concat(e[l]);t&&i[d[0]]||(void 0!==a&&(void 0===d[5]||(d[1]="@layer".concat(d[5].length>0?" ".concat(d[5]):""," {").concat(d[1],"}")),d[5]=a),r&&(d[2]?(d[1]="@media ".concat(d[2]," {").concat(d[1],"}"),d[2]=r):d[2]=r),o&&(d[4]?(d[1]="@supports (".concat(d[4],") {").concat(d[1],"}"),d[4]=o):d[4]="".concat(o)),n.push(d))}},n}},354:e=>{e.exports=function(e){var n=e[1],r=e[3];if(!r)return n;if("function"==typeof btoa){var t=btoa(unescape(encodeURIComponent(JSON.stringify(r)))),o="sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(t),a="/*# ".concat(o," */");return[n].concat([a]).join("\n")}return[n].join("\n")}},72:e=>{var n=[];function r(e){for(var r=-1,t=0;t<n.length;t++)if(n[t].identifier===e){r=t;break}return r}function t(e,t){for(var a={},i=[],s=0;s<e.length;s++){var c=e[s],l=t.base?c[0]+t.base:c[0],d=a[l]||0,p="".concat(l," ").concat(d);a[l]=d+1;var u=r(p),f={css:c[1],media:c[2],sourceMap:c[3],supports:c[4],layer:c[5]};if(-1!==u)n[u].references++,n[u].updater(f);else{var A=o(f,t);t.byIndex=s,n.splice(s,0,{identifier:p,updater:A,references:1})}i.push(p)}return i}function o(e,n){var r=n.domAPI(n);return r.update(e),function(n){if(n){if(n.css===e.css&&n.media===e.media&&n.sourceMap===e.sourceMap&&n.supports===e.supports&&n.layer===e.layer)return;r.update(e=n)}else r.remove()}}e.exports=function(e,o){var a=t(e=e||[],o=o||{});return function(e){e=e||[];for(var i=0;i<a.length;i++){var s=r(a[i]);n[s].references--}for(var c=t(e,o),l=0;l<a.length;l++){var d=r(a[l]);0===n[d].references&&(n[d].updater(),n.splice(d,1))}a=c}}},659:e=>{var n={};e.exports=function(e,r){var t=function(e){if(void 0===n[e]){var r=document.querySelector(e);if(window.HTMLIFrameElement&&r instanceof window.HTMLIFrameElement)try{r=r.contentDocument.head}catch(e){r=null}n[e]=r}return n[e]}(e);if(!t)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");t.appendChild(r)}},540:e=>{e.exports=function(e){var n=document.createElement("style");return e.setAttributes(n,e.attributes),e.insert(n,e.options),n}},56:(e,n,r)=>{e.exports=function(e){var n=r.nc;n&&e.setAttribute("nonce",n)}},825:e=>{e.exports=function(e){if("undefined"==typeof document)return{update:function(){},remove:function(){}};var n=e.insertStyleElement(e);return{update:function(r){!function(e,n,r){var t="";r.supports&&(t+="@supports (".concat(r.supports,") {")),r.media&&(t+="@media ".concat(r.media," {"));var o=void 0!==r.layer;o&&(t+="@layer".concat(r.layer.length>0?" ".concat(r.layer):""," {")),t+=r.css,o&&(t+="}"),r.media&&(t+="}"),r.supports&&(t+="}");var a=r.sourceMap;a&&"undefined"!=typeof btoa&&(t+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a))))," */")),n.styleTagTransform(t,e,n.options)}(n,e,r)},remove:function(){!function(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(n)}}}},113:e=>{e.exports=function(e,n){if(n.styleSheet)n.styleSheet.cssText=e;else{for(;n.firstChild;)n.removeChild(n.firstChild);n.appendChild(document.createTextNode(e))}}}},n={};function r(t){var o=n[t];if(void 0!==o)return o.exports;var a=n[t]={id:t,exports:{}};return e[t](a,a.exports,r),a.exports}r.n=e=>{var n=e&&e.__esModule?()=>e.default:()=>e;return r.d(n,{a:n}),n},r.d=(e,n)=>{for(var t in n)r.o(n,t)&&!r.o(e,t)&&Object.defineProperty(e,t,{enumerable:!0,get:n[t]})},r.o=(e,n)=>Object.prototype.hasOwnProperty.call(e,n),r.nc=void 0,(()=>{var e=r(72),n=r.n(e),t=r(825),o=r.n(t),a=r(659),i=r.n(a),s=r(56),c=r.n(s),l=r(540),d=r.n(l),p=r(113),u=r.n(p),f=r(208),A={};function h(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null;document.getElementById("errorDisplay").innerHTML=null===e?null:e}function g(e){var n=e,r=0===e;return{size:e,getHealth:function(){return n},getIsSunk:function(){return r},hit:function(){r||0==(n-=1)&&(r=!0)}}}A.styleTagTransform=u(),A.setAttributes=c(),A.insert=i().bind(null,"head"),A.domAPI=o(),A.insertStyleElement=d(),n()(f.A,A),f.A&&f.A.locals&&f.A.locals,document.getElementById("switchOrientation").addEventListener("click",(function(){var e=document.getElementById("switchOrientation");e.dataset.orientation="v"===e.dataset.orientation?"h":"v",e.innerHTML="Vertical"===e.innerHTML?"Horizontal":"Vertical"})),function(){for(var e=document.querySelector(".playerGrid"),n=document.querySelector(".computerGrid"),r=0;r<10;r++)for(var t=0;t<10;t++){var o=document.createElement("p"),a=document.createElement("p");o.id="player".concat(r.toString()).concat(t.toString()),a.id="computer".concat(r.toString()).concat(t.toString()),o.classList.add("cellPlayer"),a.classList.add("cellComputer"),e.appendChild(o),n.appendChild(a)}}();var v,m,y,C,x,b,I,B=(C=17,x=function(){for(var e={grid:[],areAllSunk:!1},n=0;n<10;n++){for(var r=[],t=0;t<10;t++)r.push({ship:null,isHit:!1});e.grid.push(r)}return e},b=x(),I=x(),v={getGridPlayer:function(){return b.grid},getGridComputer:function(){return I.grid},placePlayerShip:function(e,n,r,t){try{if(function(e,n,r,t){if(r<0||r>=10||t<0||t>=10)throw new Error("Coordinates are out of bounds of the board");if("h"===n&&t+e>10)throw new Error("Cannot place ship horizontally. It goes out of bounds.");if("v"===n&&r+e>10)throw new Error("Cannot place ship vertically. It goes out of bounds.");if("h"===n){for(var o=t;o<t+e;o++)if(null!==b.grid[r][o].ship)throw new Error("Cannot place ship. There is already a ship in the specified area.")}else for(var a=r;a<r+e;a++)if(null!==b.grid[a][t].ship)throw new Error("Cannot place ship. There is already a ship in the specified area.");return!0}(e.size,n,r,t)){if("h"===n){for(var o=t;o<t+e.size;o++)b.grid[r][o].ship=e;return{start:{x:r,y:t},end:{x:r,y:t+e.size-1}}}for(var a=r;a<r+e.size;a++)b.grid[a][t].ship=e;return{start:{x:r,y:t},end:{x:r+e.size-1,y:t}}}}catch(e){return e}return null},hit:function(e,n){if((e<0||e>=10||n<0||n>=10)&&h("Coordinates are out of bounds of the board"),b.grid[e][n].isHit)h("Cell already attacked and marked as hit");else{null!==b.grid[e][n].ship&&b.grid[e][n].ship.hit(),b.grid[e][n].isHit=!0;try{(C-=1)||h("Game over")}catch(e){h(e)}}},generateRandomCoordinates:function(){for(var e=[],n=[5,4,4,3,2];n.length>0;){var r=Math.random()<.5?"h":"v",t=!1,o=0,a=0;if("h"===r){o=Math.floor(10*Math.random());for(var i=a=Math.floor(Math.random()*(10-n[0]));i<a+n[0];i++)null!==I.grid[o][i].ship&&(t=!0)}else{o=Math.floor(Math.random()*(10-n[0])),a=Math.floor(10*Math.random());for(var s=o;s<o+n[0];s++)null!==I.grid[s][a].ship&&(t=!0)}if(!t){e.push({shipSize:n[0],orientation:r,x:o,y:a});var c=g(n[0]);if("h"===r)for(var l=a;l<a+n[0];l++)I.grid[o][l].ship=c;else for(var d=o;d<o+n[0];d++)I.grid[d][a].ship=c;n.shift()}}return e}},m=[g(5),g(4),g(3),g(3),g(2)],{getPlayerBoard:function(){return v.getGridPlayer()},setShipsToBoard:function(e,n,r){var t;return m[0]?(t=v.placePlayerShip(m[0],r,e,n))instanceof Error||m.shift():t=void 0,t},setComputerShipsToBoard:function(){v.generateRandomCoordinates()}});y=B,document.querySelectorAll(".cellPlayer").forEach((function(e){e.addEventListener("click",(function(){var n=e.id.slice(6),r=document.getElementById("switchOrientation").dataset.orientation,t=parseInt(n.slice(0,1),10),o=parseInt(n.slice(1),10),a=y.setShipsToBoard(t,o,r);if(void 0===a)h("all ships placed");else if(a instanceof Error)h(a);else for(var i=a.start,s=a.end,c=i.x;c<=s.x;c++)for(var l=i.y;l<=s.y;l++)document.getElementById("player".concat(c).concat(l)).classList.add("ship")}))}));var S=B.setComputerShipsToBoard();console.log(S),function(e){for(var n=document.querySelectorAll(".cellComputer"),r=e;r.length>0;){if("h"===r[0].orientation)for(var t=r[0].y;t<r[0].y+r[0].shipSize;t++)n[10*r[0].y+r[0].x].classList.add("ship");else for(var o=r[0].x;o<r[0].x+r[0].shipSize;o++)n[r[0].y+10*r[0].x].classList.add("ship");r.shift()}}(S)})()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/game-logic/gameboard.js":
+/*!*************************************!*\
+  !*** ./src/game-logic/gameboard.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ gameboard)
+/* harmony export */ });
+/* harmony import */ var _populateDOM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../populateDOM */ "./src/populateDOM.js");
+/* harmony import */ var _ship__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ship */ "./src/game-logic/ship.js");
+
+
+function gameboard() {
+  // The possible hits you can make are 17, because there are
+  // are five ships that have health as follows: 5, 4, 3, 3, 2.
+  // When this number hits 0, all ships will be sunk, therefor the game ends
+  // const possibleHits = 17;
+  // IIFE that creates the grid object
+  // it consists of a 2D array filled with objects that
+  // contain the properies 'ship' and 'hit'
+  var createGrid = function createGrid() {
+    var board = {
+      grid: [],
+      areAllSunk: false
+    };
+    for (var i = 0; i < 10; i++) {
+      var array = [];
+      for (var j = 0; j < 10; j++) {
+        array.push({
+          ship: null,
+          isHit: false
+        });
+      }
+      board.grid.push(array);
+    }
+    return board;
+  };
+  var gridPlayer = createGrid();
+  var gridComputer = createGrid();
+  var getGridPlayer = function getGridPlayer() {
+    return gridPlayer.grid;
+  };
+  var getGridComputer = function getGridComputer() {
+    return gridComputer.grid;
+  };
+  var checkCoordinates = function checkCoordinates(shipSize, orientation, x, y) {
+    if (x < 0 || x >= 10 || y < 0 || y >= 10) {
+      throw new Error("Coordinates are out of bounds of the board");
+    }
+    if (orientation === "h" && y + shipSize > 10) {
+      throw new Error("Cannot place ship horizontally. It goes out of bounds.");
+    }
+    if (orientation === "v" && x + shipSize > 10) {
+      throw new Error("Cannot place ship vertically. It goes out of bounds.");
+    }
+    if (orientation === "h") {
+      for (var i = y; i < y + shipSize; i++) {
+        if (gridPlayer.grid[x][i].ship !== null) {
+          throw new Error("Cannot place ship. There is already a ship in the specified area.");
+        }
+      }
+    } else {
+      for (var _i = x; _i < x + shipSize; _i++) {
+        if (gridPlayer.grid[_i][y].ship !== null) {
+          throw new Error("Cannot place ship. There is already a ship in the specified area.");
+        }
+      }
+    }
+    return true;
+  };
+  var placePlayerShip = function placePlayerShip(ship, orientation, x, y) {
+    try {
+      if (checkCoordinates(ship.size, orientation, x, y)) {
+        if (orientation === "h") {
+          for (var i = y; i < y + ship.size; i++) {
+            gridPlayer.grid[x][i].ship = ship;
+          }
+          return {
+            start: {
+              x: x,
+              y: y
+            },
+            end: {
+              x: x,
+              y: y + ship.size - 1
+            }
+          };
+        }
+        // for vertical orientation
+        for (var _i2 = x; _i2 < x + ship.size; _i2++) {
+          gridPlayer.grid[_i2][y].ship = ship;
+        }
+        return {
+          start: {
+            x: x,
+            y: y
+          },
+          end: {
+            x: x + ship.size - 1,
+            y: y
+          }
+        };
+      }
+    } catch (error) {
+      return error;
+    }
+    return null;
+  };
+  var generateRandomCoordinates = function generateRandomCoordinates() {
+    var coordinates = [];
+    var shipSize = [5, 4, 3, 3, 2];
+    while (shipSize.length > 0) {
+      var orientation = Math.random() < 0.5 ? "h" : "v";
+      var hasOverlap = false;
+      var x = 0;
+      var y = 0;
+      if (orientation === "h") {
+        x = Math.floor(Math.random() * 10); // Random row index
+        y = Math.floor(Math.random() * (10 - shipSize[0])); // Random column index within bounds
+        for (var i = y; i < y + shipSize[0]; i++) {
+          if (gridComputer.grid[x][i].ship !== null) {
+            hasOverlap = true;
+          }
+        }
+      } else {
+        x = Math.floor(Math.random() * (10 - shipSize[0])); // Random row index within bounds
+        y = Math.floor(Math.random() * 10); // Random column index
+        for (var _i3 = x; _i3 < x + shipSize[0]; _i3++) {
+          if (gridComputer.grid[_i3][y].ship !== null) {
+            hasOverlap = true;
+          }
+        }
+      }
+      if (!hasOverlap) {
+        coordinates.push({
+          shipSize: shipSize[0],
+          orientation: orientation,
+          x: x,
+          y: y
+        });
+        var ship = (0,_ship__WEBPACK_IMPORTED_MODULE_1__["default"])(shipSize[0]);
+        if (orientation === "h") {
+          for (var _i4 = y; _i4 < y + shipSize[0]; _i4++) {
+            gridComputer.grid[x][_i4].ship = ship;
+          }
+        } else {
+          for (var _i5 = x; _i5 < x + shipSize[0]; _i5++) {
+            gridComputer.grid[_i5][y].ship = ship;
+          }
+        }
+        shipSize.shift();
+      }
+    }
+    return coordinates;
+  };
+
+  // const updatePossibleHits = () => {
+  //   possibleHits -= 1;
+  //   if (!possibleHits) {
+  //     // implement logic later on
+  //     updateErrorDisplay("Game over");
+  //     // throw new Error("Game over");
+  //   }
+  // };
+  // Cheks if the given coordinates have been hit, and if there is a ship.
+  // It marks the ship and the cell as hit. The way that the mechanic works is
+  // a ship that is set on several adjacent cells is a single object assigned to
+  // to multiple coordinates, with each hit,the health of the object decreases.
+  var hit = function hit(x, y) {
+    if (x < 0 || x >= 10 || y < 0 || y >= 10) {
+      (0,_populateDOM__WEBPACK_IMPORTED_MODULE_0__.updateErrorDisplay)("Coordinates are out of bounds of the board");
+      // throw new Error("Coordinates are out of bounds of the board");
+    }
+    if (!gridComputer.grid[x][y].isHit) {
+      if (gridComputer.grid[x][y].ship !== null) {
+        gridComputer.grid[x][y].ship.hit();
+      }
+      gridComputer.grid[x][y].isHit = true;
+      // updatePossibleHits();
+      // throw new Error(err);
+    } else {
+      (0,_populateDOM__WEBPACK_IMPORTED_MODULE_0__.updateErrorDisplay)("Cell already attacked and marked as hit");
+      // throw new Error("Cell already attacked and marked as hit");
+    }
+    console.log(gridComputer.grid[x][y].isHit);
+    console.log(gridComputer.grid[x][y].ship.getHealth());
+    console.log(gridComputer.grid[x][y].ship.getIsSunk());
+  };
+  return {
+    getGridPlayer: getGridPlayer,
+    getGridComputer: getGridComputer,
+    placePlayerShip: placePlayerShip,
+    hit: hit,
+    generateRandomCoordinates: generateRandomCoordinates
+  };
+}
+
+/***/ }),
+
+/***/ "./src/game-logic/player.js":
+/*!**********************************!*\
+  !*** ./src/game-logic/player.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Player)
+/* harmony export */ });
+/* harmony import */ var _ship__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ship */ "./src/game-logic/ship.js");
+/* harmony import */ var _gameboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameboard */ "./src/game-logic/gameboard.js");
+/* harmony import */ var _populateDOM__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../populateDOM */ "./src/populateDOM.js");
+
+
+
+function Player() {
+  var board = (0,_gameboard__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  var ships = [(0,_ship__WEBPACK_IMPORTED_MODULE_0__["default"])(5),
+  // carrier
+  (0,_ship__WEBPACK_IMPORTED_MODULE_0__["default"])(4),
+  // battleship
+  (0,_ship__WEBPACK_IMPORTED_MODULE_0__["default"])(3),
+  // cruiser
+  (0,_ship__WEBPACK_IMPORTED_MODULE_0__["default"])(3),
+  // submarine
+  (0,_ship__WEBPACK_IMPORTED_MODULE_0__["default"])(2) // destroyer
+  ];
+  var getPlayerBoard = function getPlayerBoard() {
+    return board.getGridPlayer();
+  };
+  function setShipsToBoard(x, y, orientation) {
+    var result;
+    if (ships[0]) {
+      if (ships.length === 1) {
+        result = board.placePlayerShip(ships[0], orientation, x, y);
+        if (result instanceof Error) {
+          // skip the line below if the result of the function calling is an error message
+        } else {
+          ships.shift();
+          (0,_populateDOM__WEBPACK_IMPORTED_MODULE_2__.disableShipPlacement)();
+          (0,_populateDOM__WEBPACK_IMPORTED_MODULE_2__.enableAttacks)(this);
+        }
+      } else {
+        result = board.placePlayerShip(ships[0], orientation, x, y);
+        if (result instanceof Error) {
+          // skip the line below if the result of the function calling is an error message
+        } else {
+          ships.shift();
+        }
+      }
+    } else {
+      result = undefined;
+    }
+    return result;
+  }
+  var hit = function hit(x, y) {
+    board.hit(x, y);
+  };
+  var setComputerShipsToBoard = function setComputerShipsToBoard() {
+    var coordinates = board.generateRandomCoordinates();
+    return coordinates;
+  };
+  return {
+    getPlayerBoard: getPlayerBoard,
+    setShipsToBoard: setShipsToBoard,
+    setComputerShipsToBoard: setComputerShipsToBoard,
+    hit: hit
+  };
+}
+
+/***/ }),
+
+/***/ "./src/game-logic/ship.js":
+/*!********************************!*\
+  !*** ./src/game-logic/ship.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Ship)
+/* harmony export */ });
+function Ship(length) {
+  var size = length;
+  var health = size;
+  var isSunk = size === 0;
+  var getHealth = function getHealth() {
+    return health;
+  };
+  var getIsSunk = function getIsSunk() {
+    return isSunk;
+  };
+  var hit = function hit() {
+    if (!isSunk) {
+      health -= 1;
+      if (health === 0) {
+        isSunk = true;
+      }
+    }
+  };
+  return {
+    size: size,
+    getHealth: getHealth,
+    getIsSunk: getIsSunk,
+    hit: hit
+  };
+}
+
+/***/ }),
+
+/***/ "./src/populateDOM.js":
+/*!****************************!*\
+  !*** ./src/populateDOM.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   disableShipPlacement: () => (/* binding */ disableShipPlacement),
+/* harmony export */   drawGrid: () => (/* binding */ drawGrid),
+/* harmony export */   enableAttacks: () => (/* binding */ enableAttacks),
+/* harmony export */   markComputerShips: () => (/* binding */ markComputerShips),
+/* harmony export */   placeShips: () => (/* binding */ placeShips),
+/* harmony export */   switchOrientation: () => (/* binding */ switchOrientation),
+/* harmony export */   updateErrorDisplay: () => (/* binding */ updateErrorDisplay)
+/* harmony export */ });
+function drawGrid() {
+  var containerPlayer = document.querySelector(".playerGrid");
+  var containerComputer = document.querySelector(".computerGrid");
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 10; j++) {
+      var cellPlayer = document.createElement("p");
+      var cellComputer = document.createElement("p");
+      cellPlayer.id = "player".concat(i.toString()).concat(j.toString());
+      cellComputer.id = "computer".concat(i.toString()).concat(j.toString());
+      cellPlayer.classList.add("cellPlayer");
+      cellComputer.classList.add("cellComputer");
+      containerPlayer.appendChild(cellPlayer);
+      containerComputer.appendChild(cellComputer);
+    }
+  }
+}
+function markComputerShips(input) {
+  var containerComputer = document.querySelectorAll(".cellComputer");
+  var coordinates = input.slice();
+  while (coordinates.length > 0) {
+    if (coordinates[0].orientation === "h") {
+      for (var i = coordinates[0].y; i < coordinates[0].y + coordinates[0].shipSize; i++) {
+        containerComputer[coordinates[0].x * 10 + i].classList.add("ship");
+      }
+    } else {
+      for (var _i = coordinates[0].x; _i < coordinates[0].x + coordinates[0].shipSize; _i++) {
+        containerComputer[_i * 10 + coordinates[0].y].classList.add("ship");
+      }
+    }
+    coordinates.shift();
+  }
+}
+function switchOrientation() {
+  var btn = document.getElementById("switchOrientation");
+  btn.dataset.orientation = btn.dataset.orientation === "v" ? "h" : "v";
+  btn.innerHTML = btn.innerHTML === "Vertical" ? "Horizontal" : "Vertical";
+}
+function updateErrorDisplay() {
+  var err = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var errorDisplay = document.getElementById("errorDisplay");
+  errorDisplay.innerHTML = err === null ? null : err;
+}
+function placeShips(player) {
+  var cells = document.querySelectorAll(".cellPlayer");
+  cells.forEach(function (cell) {
+    cell.addEventListener("click", function () {
+      var id = cell.id.slice(6);
+      var orientation = document.getElementById("switchOrientation").dataset.orientation;
+      var x = parseInt(id.slice(0, 1), 10);
+      var y = parseInt(id.slice(1), 10);
+      var coordinatesToMark = player.setShipsToBoard(x, y, orientation);
+      if (coordinatesToMark === undefined) {
+        updateErrorDisplay("all ships placed");
+      } else if (coordinatesToMark instanceof Error) {
+        updateErrorDisplay(coordinatesToMark);
+      } else {
+        var start = coordinatesToMark.start,
+          end = coordinatesToMark.end;
+        for (var i = start.x; i <= end.x; i++) {
+          for (var j = start.y; j <= end.y; j++) {
+            var cellWithShip = document.getElementById("player".concat(i).concat(j));
+            cellWithShip.classList.add("ship");
+          }
+        }
+      }
+    });
+  });
+}
+// remove all event listeneners by clonign each cell node
+function disableShipPlacement() {
+  var cells = document.querySelectorAll(".cellPlayer");
+  cells.forEach(function (cell) {
+    cell.replaceWith(cell.cloneNode(true));
+  });
+}
+function enableAttacks(player) {
+  var cells = document.querySelectorAll(".cellComputer");
+  cells.forEach(function (cell) {
+    cell.addEventListener("click", function () {
+      var id = cell.id.slice(8);
+      var x = parseInt(id.slice(0, 1), 10);
+      var y = parseInt(id.slice(1), 10);
+      cell.classList.add("hit");
+      player.hit(x, y);
+    });
+  });
+}
+
+// export function renderPlayerBoard(){}
+// export function renderComputerBoard(){}
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/style.css":
+/*!*************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+#gameContainer{
+    display: flex;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 30px;
+}
+.gameControls{
+    border: 1px solid red;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    padding: 10px;
+    border: 1px solid red;
+}
+.cellComputer, .cellPlayer {
+    border: 1px solid red;
+}
+.cellPlayer:hover{
+    background-color: aqua;
+}
+.cellPlayer.ship{
+    background-color: red;
+}
+.cellComputer.ship{
+    background-color: blueviolet;
+}
+#errorDisplay{
+    border: 1px solid red;
+}
+.cellComputer.hit{
+    content: "X";
+    background-color: aqua;
+}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,UAAU;IACV,SAAS;IACT,sBAAsB;AAC1B;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,aAAa;AACjB;AACA;IACI,aAAa;IACb,qBAAqB;IACrB,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,YAAY;IACZ,WAAW;IACX,SAAS;AACb;AACA;IACI,qBAAqB;IACrB,aAAa;IACb,aAAa;IACb,sBAAsB;IACtB,SAAS;AACb;AACA;IACI,aAAa;IACb,uCAAuC;IACvC,oCAAoC;IACpC,aAAa;IACb,qBAAqB;AACzB;AACA;IACI,qBAAqB;AACzB;AACA;IACI,sBAAsB;AAC1B;AACA;IACI,qBAAqB;AACzB;AACA;IACI,4BAA4B;AAChC;AACA;IACI,qBAAqB;AACzB;AACA;IACI,YAAY;IACZ,sBAAsB;AAC1B","sourcesContent":["*{\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\nheader {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 30px;\n}\n#gameContainer{\n    display: flex;\n    border: 1px solid red;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100%;\n    width: 100%;\n    gap: 30px;\n}\n.gameControls{\n    border: 1px solid red;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n}\n.grid {\n    display: grid;\n    grid-template-columns: repeat(10, 50px);\n    grid-template-rows: repeat(10, 50px);\n    padding: 10px;\n    border: 1px solid red;\n}\n.cellComputer, .cellPlayer {\n    border: 1px solid red;\n}\n.cellPlayer:hover{\n    background-color: aqua;\n}\n.cellPlayer.ship{\n    background-color: red;\n}\n.cellComputer.ship{\n    background-color: blueviolet;\n}\n#errorDisplay{\n    border: 1px solid red;\n}\n.cellComputer.hit{\n    content: \"X\";\n    background-color: aqua;\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+module.exports = function (cssWithMappingToString) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = "";
+      var needLayer = typeof item[5] !== "undefined";
+      if (item[4]) {
+        content += "@supports (".concat(item[4], ") {");
+      }
+      if (item[2]) {
+        content += "@media ".concat(item[2], " {");
+      }
+      if (needLayer) {
+        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
+      }
+      content += cssWithMappingToString(item);
+      if (needLayer) {
+        content += "}";
+      }
+      if (item[2]) {
+        content += "}";
+      }
+      if (item[4]) {
+        content += "}";
+      }
+      return content;
+    }).join("");
+  };
+
+  // import a list of modules into the list
+  list.i = function i(modules, media, dedupe, supports, layer) {
+    if (typeof modules === "string") {
+      modules = [[null, modules, undefined]];
+    }
+    var alreadyImportedModules = {};
+    if (dedupe) {
+      for (var k = 0; k < this.length; k++) {
+        var id = this[k][0];
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+    for (var _k = 0; _k < modules.length; _k++) {
+      var item = [].concat(modules[_k]);
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        continue;
+      }
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
+        } else {
+          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
+          item[5] = layer;
+        }
+      }
+      if (media) {
+        if (!item[2]) {
+          item[2] = media;
+        } else {
+          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
+          item[2] = media;
+        }
+      }
+      if (supports) {
+        if (!item[4]) {
+          item[4] = "".concat(supports);
+        } else {
+          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
+          item[4] = supports;
+        }
+      }
+      list.push(item);
+    }
+  };
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/sourceMaps.js":
+/*!************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
+  \************************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (item) {
+  var content = item[1];
+  var cssMapping = item[3];
+  if (!cssMapping) {
+    return content;
+  }
+  if (typeof btoa === "function") {
+    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
+    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+    var sourceMapping = "/*# ".concat(data, " */");
+    return [content].concat([sourceMapping]).join("\n");
+  }
+  return [content].join("\n");
+};
+
+/***/ }),
+
+/***/ "./src/style.css":
+/*!***********************!*\
+  !*** ./src/style.css ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./style.css */ "./node_modules/css-loader/dist/cjs.js!./src/style.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module) => {
+
+
+
+var stylesInDOM = [];
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+  for (var i = 0; i < stylesInDOM.length; i++) {
+    if (stylesInDOM[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+  return result;
+}
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var indexByIdentifier = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3],
+      supports: item[4],
+      layer: item[5]
+    };
+    if (indexByIdentifier !== -1) {
+      stylesInDOM[indexByIdentifier].references++;
+      stylesInDOM[indexByIdentifier].updater(obj);
+    } else {
+      var updater = addElementStyle(obj, options);
+      options.byIndex = i;
+      stylesInDOM.splice(i, 0, {
+        identifier: identifier,
+        updater: updater,
+        references: 1
+      });
+    }
+    identifiers.push(identifier);
+  }
+  return identifiers;
+}
+function addElementStyle(obj, options) {
+  var api = options.domAPI(options);
+  api.update(obj);
+  var updater = function updater(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
+        return;
+      }
+      api.update(obj = newObj);
+    } else {
+      api.remove();
+    }
+  };
+  return updater;
+}
+module.exports = function (list, options) {
+  options = options || {};
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDOM[index].references--;
+    }
+    var newLastIdentifiers = modulesToDom(newList, options);
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+      var _index = getIndexByIdentifier(_identifier);
+      if (stylesInDOM[_index].references === 0) {
+        stylesInDOM[_index].updater();
+        stylesInDOM.splice(_index, 1);
+      }
+    }
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+
+
+var memo = {};
+
+/* istanbul ignore next  */
+function getTarget(target) {
+  if (typeof memo[target] === "undefined") {
+    var styleTarget = document.querySelector(target);
+
+    // Special case to return head of iframe instead of iframe itself
+    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+      try {
+        // This will throw an exception if access to iframe is blocked
+        // due to cross-origin restrictions
+        styleTarget = styleTarget.contentDocument.head;
+      } catch (e) {
+        // istanbul ignore next
+        styleTarget = null;
+      }
+    }
+    memo[target] = styleTarget;
+  }
+  return memo[target];
+}
+
+/* istanbul ignore next  */
+function insertBySelector(insert, style) {
+  var target = getTarget(insert);
+  if (!target) {
+    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+  }
+  target.appendChild(style);
+}
+module.exports = insertBySelector;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function insertStyleElement(options) {
+  var element = document.createElement("style");
+  options.setAttributes(element, options.attributes);
+  options.insert(element, options.options);
+  return element;
+}
+module.exports = insertStyleElement;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \**********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+
+
+/* istanbul ignore next  */
+function setAttributesWithoutAttributes(styleElement) {
+  var nonce =  true ? __webpack_require__.nc : 0;
+  if (nonce) {
+    styleElement.setAttribute("nonce", nonce);
+  }
+}
+module.exports = setAttributesWithoutAttributes;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function apply(styleElement, options, obj) {
+  var css = "";
+  if (obj.supports) {
+    css += "@supports (".concat(obj.supports, ") {");
+  }
+  if (obj.media) {
+    css += "@media ".concat(obj.media, " {");
+  }
+  var needLayer = typeof obj.layer !== "undefined";
+  if (needLayer) {
+    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
+  }
+  css += obj.css;
+  if (needLayer) {
+    css += "}";
+  }
+  if (obj.media) {
+    css += "}";
+  }
+  if (obj.supports) {
+    css += "}";
+  }
+  var sourceMap = obj.sourceMap;
+  if (sourceMap && typeof btoa !== "undefined") {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  }
+
+  // For old IE
+  /* istanbul ignore if  */
+  options.styleTagTransform(css, styleElement, options.options);
+}
+function removeStyleElement(styleElement) {
+  // istanbul ignore if
+  if (styleElement.parentNode === null) {
+    return false;
+  }
+  styleElement.parentNode.removeChild(styleElement);
+}
+
+/* istanbul ignore next  */
+function domAPI(options) {
+  if (typeof document === "undefined") {
+    return {
+      update: function update() {},
+      remove: function remove() {}
+    };
+  }
+  var styleElement = options.insertStyleElement(options);
+  return {
+    update: function update(obj) {
+      apply(styleElement, options, obj);
+    },
+    remove: function remove() {
+      removeStyleElement(styleElement);
+    }
+  };
+}
+module.exports = domAPI;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \*********************************************************************/
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function styleTagTransform(css, styleElement) {
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css;
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild);
+    }
+    styleElement.appendChild(document.createTextNode(css));
+  }
+}
+module.exports = styleTagTransform;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _populateDOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateDOM */ "./src/populateDOM.js");
+/* harmony import */ var _game_logic_player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game-logic/player */ "./src/game-logic/player.js");
+
+
+
+var btn = document.getElementById("switchOrientation");
+btn.addEventListener("click", _populateDOM__WEBPACK_IMPORTED_MODULE_1__.switchOrientation);
+(0,_populateDOM__WEBPACK_IMPORTED_MODULE_1__.drawGrid)();
+var player1 = (0,_game_logic_player__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_populateDOM__WEBPACK_IMPORTED_MODULE_1__.placeShips)(player1);
+var coordinatesToMark = player1.setComputerShipsToBoard();
+(0,_populateDOM__WEBPACK_IMPORTED_MODULE_1__.markComputerShips)(coordinatesToMark);
+})();
+
+/******/ })()
+;
 //# sourceMappingURL=bundle.js.map
