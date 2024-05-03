@@ -11,5 +11,13 @@ function startGame() {
   const coordinatesToMark = player1.setComputerShipsToBoard();
   markComputerShips(coordinatesToMark);
 }
+export default function resetGame() {
+  const grids = document.querySelectorAll(".grid");
+  grids.forEach((element) => {
+    const grid = element;
+    grid.innerHTML = "";
+  });
 
+  startGame();
+}
 startGame();

@@ -1,4 +1,5 @@
 import { updateErrorDisplay, updateHitShips } from "../populateDOM";
+import resetGame from "../index";
 import Ship from "./ship";
 
 export default function gameboard() {
@@ -190,8 +191,10 @@ export default function gameboard() {
   const checkForWin = () => {
     if (gridComputer.areAllSunk) {
       updateErrorDisplay("Player wins");
+      resetGame();
     } else if (gridPlayer.areAllSunk) {
       updateErrorDisplay("COmputer wins");
+      resetGame();
     }
   };
   // Cheks if the given coordinates have been hit, and if there is a ship.
