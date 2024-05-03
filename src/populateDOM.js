@@ -121,6 +121,11 @@ export const winnerDisplayVisibility = () => {
     winnerScreen.style.display = "none";
   }
 };
+
+export const addClassHitToComputerShip = (n) => {
+  const computerGrid = document.querySelector(`.cellComputer:nth-child(${n})`);
+  computerGrid.classList.add("ship");
+};
 const btn = document.getElementById("switchOrientation");
 btn.addEventListener("click", switchOrientation);
 // export function renderPlayerBoard(){}

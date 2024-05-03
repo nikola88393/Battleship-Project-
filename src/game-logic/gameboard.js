@@ -3,6 +3,7 @@ import {
   updateHitShips,
   updateWinnerDisplay,
   winnerDisplayVisibility,
+  addClassHitToComputerShip,
 } from "../populateDOM";
 import Ship from "./ship";
 
@@ -160,6 +161,8 @@ export default function gameboard() {
     let x = Math.floor(Math.random() * 10);
     let y = Math.floor(Math.random() * 10);
 
+    // using a constant for a while loop is not a great practice
+    // but I've used it here, because there can't be any side effects
     while (1) {
       if (!gridPlayer.grid[x][y].isHit) {
         gridPlayer.grid[x][y].isHit = true;
@@ -195,7 +198,6 @@ export default function gameboard() {
   const checkForWin = () => {
     if (gridComputer.areAllSunk) {
       updateWinnerDisplay("Player wins");
-      console.log("winner");
       winnerDisplayVisibility();
       // resetGame();
     } else if (gridPlayer.areAllSunk) {
@@ -216,6 +218,7 @@ export default function gameboard() {
     if (!gridComputer.grid[x][y].isHit) {
       if (gridComputer.grid[x][y].ship !== null) {
         gridComputer.grid[x][y].ship.hit();
+        addClassHitToComputerShip(x * 10 + y + 1);
         // Introduce a check that verifies if all ships of the computer board have been sunk
         const areAllSunk = gridComputer.grid.every((row) =>
           row.every((cell) => {

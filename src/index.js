@@ -2,7 +2,7 @@ import "./style.css";
 import {
   drawGrid,
   placeShips,
-  markComputerShips,
+  // markComputerShips,
   winnerDisplayVisibility,
 } from "./populateDOM";
 import player from "./game-logic/player";
@@ -13,8 +13,8 @@ function startGame() {
   drawGrid();
   const player1 = player();
   placeShips(player1);
-  const coordinatesToMark = player1.setComputerShipsToBoard();
-  markComputerShips(coordinatesToMark);
+  player1.setComputerShipsToBoard();
+  // markComputerShips(coordinatesToMark);
 }
 const resetBtn = document.getElementById("resetGame");
 resetBtn.addEventListener("click", () => {
