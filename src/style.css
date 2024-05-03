@@ -52,3 +52,6 @@ header {
     content: "X";
     background-color: aqua;
 }
+.cellPlayer.hit{
+    background-color: black;
+}

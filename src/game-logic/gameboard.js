@@ -1,4 +1,4 @@
-import { updateErrorDisplay } from "../populateDOM";
+import { updateErrorDisplay, updateHitShips } from "../populateDOM";
 import Ship from "./ship";
 
 export default function gameboard() {
@@ -151,14 +151,26 @@ export default function gameboard() {
     return coordinates;
   };
 
-  // const updatePossibleHits = () => {
-  //   possibleHits -= 1;
-  //   if (!possibleHits) {
-  //     // implement logic later on
-  //     updateErrorDisplay("Game over");
-  //     // throw new Error("Game over");
-  //   }
-  // };
+  const takeRandomComputerHit = () => {
+    let x = Math.floor(Math.random() * 10);
+    let y = Math.floor(Math.random() * 10);
+
+    while (1) {
+      if (!gridPlayer.grid[x][y].isHit) {
+        gridPlayer.grid[x][y].isHit = true;
+        console.log(gridPlayer.grid[x][y].isHit);
+        console.log(gridPlayer.grid[x][y].ship);
+        break;
+      } else {
+        x = Math.floor(Math.random() * 10);
+        y = Math.floor(Math.random() * 10);
+      }
+    }
+
+    // return the nth child of the grid to mark it on the board
+    console.log({ x, y });
+    return x * 10 + y;
+  };
   // Cheks if the given coordinates have been hit, and if there is a ship.
   // It marks the ship and the cell as hit. The way that the mechanic works is
   // a ship that is set on several adjacent cells is a single object assigned to
@@ -189,6 +201,7 @@ export default function gameboard() {
       gridComputer.grid[x][y].isHit = true;
       // updatePossibleHits();
       // throw new Error(err);
+      updateHitShips(takeRandomComputerHit());
     } else {
       updateErrorDisplay("Cell already attacked and marked as hit");
       // throw new Error("Cell already attacked and marked as hit");

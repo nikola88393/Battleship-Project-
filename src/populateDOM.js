@@ -100,5 +100,11 @@ export function enableAttacks(player) {
   });
 }
 
+export const updateHitShips = (n) => {
+  const hitCell = document.querySelector(`.playerGrid p:nth-child(${n + 1})`);
+  hitCell.classList.add("hit");
+};
+const btn = document.getElementById("switchOrientation");
+btn.addEventListener("click", switchOrientation);
 // export function renderPlayerBoard(){}
 // export function renderComputerBoard(){}
