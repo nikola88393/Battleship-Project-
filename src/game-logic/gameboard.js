@@ -158,8 +158,11 @@ export default function gameboard() {
     while (1) {
       if (!gridPlayer.grid[x][y].isHit) {
         gridPlayer.grid[x][y].isHit = true;
-        console.log(gridPlayer.grid[x][y].isHit);
-        console.log(gridPlayer.grid[x][y].ship);
+        if (gridPlayer.grid[x][y].ship) {
+          gridPlayer.grid[x][y].ship.hit();
+        }
+        // console.log(gridPlayer.grid[x][y].isHit);
+        // console.log(gridPlayer.grid[x][y].ship);
         break;
       } else {
         x = Math.floor(Math.random() * 10);
@@ -167,9 +170,29 @@ export default function gameboard() {
       }
     }
 
+    const areAllSunk = gridPlayer.grid.every((row) =>
+      row.every((cell) => {
+        if (cell.ship) {
+          return cell.ship.getIsSunk();
+        }
+        return true; // Cell doesn't have a ship, so it's effectively "sunk"
+      })
+    );
+
+    if (areAllSunk) {
+      gridPlayer.areAllSunk = true;
+    }
+
     // return the nth child of the grid to mark it on the board
-    console.log({ x, y });
     return x * 10 + y;
+  };
+
+  const checkForWin = () => {
+    if (gridComputer.areAllSunk) {
+      updateErrorDisplay("Player wins");
+    } else if (gridPlayer.areAllSunk) {
+      updateErrorDisplay("COmputer wins");
+    }
   };
   // Cheks if the given coordinates have been hit, and if there is a ship.
   // It marks the ship and the cell as hit. The way that the mechanic works is
@@ -201,7 +224,9 @@ export default function gameboard() {
       gridComputer.grid[x][y].isHit = true;
       // updatePossibleHits();
       // throw new Error(err);
+      checkForWin();
       updateHitShips(takeRandomComputerHit());
+      checkForWin();
     } else {
       updateErrorDisplay("Cell already attacked and marked as hit");
       // throw new Error("Cell already attacked and marked as hit");
