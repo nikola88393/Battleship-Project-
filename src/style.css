@@ -78,12 +78,25 @@ button{
 .cellComputer{
     cursor: pointer;
 }
-.cellPlayer.ship{
-    background-color: var(--blue);
+.cellComputer:hover{
+    background-color: rgba(46, 46, 46, 0.4);
 }
-/* .cellComputer.ship{
-    background-color:var(--blue);
-} */
+.cellPlayer.ship{
+    /* background-color: gray; */
+    position: relative;
+}
+.cellPlayer.ship::after{
+    /* background-color: gray; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55px; 
+    font-weight: 500;
+    content: "\2691";
+    color: var(--blue);
+}
+
 #errorDisplay{
     border: 1px solid red;
     width: 500px;
@@ -128,15 +141,13 @@ button{
     /* top: 0px; */
     content: "";
     font-size: 40px;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: red;
     border: none;
     border-radius: 50%;
+    z-index: 1;
 }
-/* .cellPlayer.hit{
-    background-color: black;
-} */
 
 .winnerScreen{
     position: absolute;
@@ -148,7 +159,7 @@ button{
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    z-index: 1;
+    z-index: 2;
 }
 
 #winner {
@@ -157,7 +168,43 @@ button{
     border: 1px solid red;
 }
 
-.hover {
-    background-color: brown;
+/* .hover {
+    background-color: green;
     cursor: pointer;
+} */
+
+.hoverInvalid,
+.hover {
+    /* background-color: red; */
+    position: relative;
+    cursor: pointer;
+}
+.hover::before {
+    /* background-color: green; */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 25px;
+    height: 25px; */
+    content: "\2690";
+    /* content: "\2690"; */
+    font-size: 55px; 
+    color: green ;
+    text-align: center;
+}
+.hoverInvalid:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 25px;
+    height: 25px; */
+    content: '\2716';
+    /* content: "\2690"; */
+    font-size: 50px; 
+    font-weight: 700;
+    color: red ;
+    text-align: center;
 }

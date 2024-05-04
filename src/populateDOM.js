@@ -99,10 +99,19 @@ export function placeShips(player) {
             const nextCell = cell.parentElement.children[index + i];
             cellsToHighlight.push(nextCell);
           }
+        } else {
+          for (let i = 0; i < 10 - (index % 10); i++) {
+            const nextCell = cell.parentElement.children[index + i];
+            cellsToHighlight.push(nextCell);
+          }
         }
 
         if (cellsToHighlight.length === shipsSizes[0]) {
           cellsToHighlight.forEach((element) => element.classList.add("hover"));
+        } else {
+          cellsToHighlight.forEach((element) =>
+            element.classList.add("hoverInvalid")
+          );
         }
       } else {
         if (Math.floor(index / 10) + shipsSizes[0] <= 10) {
@@ -110,10 +119,19 @@ export function placeShips(player) {
             const nextCell = cell.parentElement.children[index + 10 * i];
             cellsToHighlight.push(nextCell);
           }
+        } else {
+          for (let i = 0; i < 10 - Math.floor(index / 10); i++) {
+            const nextCell = cell.parentElement.children[index + 10 * i];
+            cellsToHighlight.push(nextCell);
+          }
         }
 
         if (cellsToHighlight.length === shipsSizes[0]) {
           cellsToHighlight.forEach((element) => element.classList.add("hover"));
+        } else {
+          cellsToHighlight.forEach((element) =>
+            element.classList.add("hoverInvalid")
+          );
         }
       }
     });
@@ -129,11 +147,20 @@ export function placeShips(player) {
             const nextCell = cell.parentElement.children[index + i];
             cellsToUnhighlight.push(nextCell);
           }
+        } else {
+          for (let i = 0; i < 10 - (index % 10); i++) {
+            const nextCell = cell.parentElement.children[index + i];
+            cellsToUnhighlight.push(nextCell);
+          }
         }
 
         if (cellsToUnhighlight.length === shipsSizes[0]) {
           cellsToUnhighlight.forEach((element) =>
             element.classList.remove("hover")
+          );
+        } else {
+          cellsToUnhighlight.forEach((element) =>
+            element.classList.remove("hoverInvalid")
           );
         }
       } else {
@@ -142,11 +169,20 @@ export function placeShips(player) {
             const nextCell = cell.parentElement.children[index + 10 * i];
             cellsToUnhighlight.push(nextCell);
           }
+        } else {
+          for (let i = 0; i < 10 - Math.floor(index / 10); i++) {
+            const nextCell = cell.parentElement.children[index + 10 * i];
+            cellsToUnhighlight.push(nextCell);
+          }
         }
 
         if (cellsToUnhighlight.length === shipsSizes[0]) {
           cellsToUnhighlight.forEach((element) =>
             element.classList.remove("hover")
+          );
+        } else {
+          cellsToUnhighlight.forEach((element) =>
+            element.classList.remove("hoverInvalid")
           );
         }
       }
