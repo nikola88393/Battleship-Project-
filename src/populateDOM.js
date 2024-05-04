@@ -61,6 +61,7 @@ export function placeShips(player) {
 
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
+      updateErrorDisplay("Plan carefully!");
       // Temporary solution for removing leftover hover class on last ship cells
       cells.forEach((element) => {
         element.classList.remove("hover");
@@ -189,7 +190,7 @@ export function placeShips(player) {
     });
   });
 }
-// remove all event listeneners by clonign each cell node
+// remove all event listeneners by cloning each cell node
 export function disableShipPlacement() {
   const cells = document.querySelectorAll(".cellPlayer");
   cells.forEach((cell) => {
@@ -201,6 +202,7 @@ export function enableAttacks(player) {
   const cells = document.querySelectorAll(".cellComputer");
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
+      updateErrorDisplay("Time to attack!");
       const id = cell.id.slice(8);
       const x = parseInt(id.slice(0, 1), 10);
       const y = parseInt(id.slice(1), 10);

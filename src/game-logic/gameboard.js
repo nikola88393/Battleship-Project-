@@ -168,6 +168,7 @@ export default function gameboard() {
         gridPlayer.grid[x][y].isHit = true;
         if (gridPlayer.grid[x][y].ship) {
           gridPlayer.grid[x][y].ship.hit();
+          updateErrorDisplay("Captain, one of our ships took an attack!");
         }
         // console.log(gridPlayer.grid[x][y].isHit);
         // console.log(gridPlayer.grid[x][y].ship);
@@ -198,10 +199,12 @@ export default function gameboard() {
   const checkForWin = () => {
     if (gridComputer.areAllSunk) {
       updateWinnerDisplay("Player wins");
+      updateErrorDisplay("Well done captain!");
       winnerDisplayVisibility();
       // resetGame();
     } else if (gridPlayer.areAllSunk) {
       updateWinnerDisplay("Computer wins");
+      updateErrorDisplay("Maybe next time..");
       winnerDisplayVisibility();
       // resetGame();
     }
@@ -219,6 +222,7 @@ export default function gameboard() {
       if (gridComputer.grid[x][y].ship !== null) {
         gridComputer.grid[x][y].ship.hit();
         addClassHitToComputerShip(x * 10 + y + 1);
+        updateErrorDisplay("Captain, we hit the enemy!");
         // Introduce a check that verifies if all ships of the computer board have been sunk
         const areAllSunk = gridComputer.grid.every((row) =>
           row.every((cell) => {
