@@ -6,21 +6,53 @@
     <title>Battleship</title>
   </head>
   <body>
+    <div class="instructionsContainer">
+      <div class="instructions">
+        <p>
+          The game starts automatically after you place your 5 ships. The ship's
+          placement will be highlighted on the board when you hover over a cell.
+          After you've placed your ships you can start attacking your opponents
+          board. Beware! They will attack back. Good luck!
+        </p>
+        <p>
+          You can change the orientation of the ships placement by clicking the
+          button Horizontal/Vertical
+        </p>
+        <p class="hollowFlag">
+          - Those symboles indicate where the ship will be placed. Click to
+          confirm the placement
+        </p>
+        <p class="flag">- Those symbols indicate cells that contain ships.</p>
+        <p class="cross">- Those symbols indicate invalid ship placement.</p>
+        <p class="hollowCircle">
+          - Those symbols indicate cells that are marked as hit, but do not
+          contain ships
+        </p>
+        <p class="circle">
+          - Those symbols indicate cells that are marked as hit and contain
+          ships
+        </p>
+
+        <button class="toggleInstructions">Close</button>
+      </div>
+    </div>
     <header>Battleship Game</header>
     <div id="gameContainer">
       <div class="winnerScreen">
         <p id="winner"></p>
-        <button id="resetGame">Reset game</button>
+        <button id="resetGame">Play again!</button>
       </div>
       <div class="grid playerGrid"></div>
-      <div class="gameControls">
-        <button id="randomPos">Randomize positioning</button>
-        <button id="switchOrientation" data-orientation="h">Vertical</button>
-      </div>
+      <!-- <div class="gameControls"> -->
+      <!-- <button class="toggleInstructions">How to play</button> -->
+      <!-- <button id="switchOrientation" data-orientation="h">Vertical</button> -->
+      <!-- </div> -->
       <div class="grid computerGrid"></div>
     </div>
     <div id="announcerContainer">
-      <div id="errorDisplay"></div>
+      <button class="toggleInstructions">How to play</button>
+      <div id="errorDisplay">Hover over the grid to place your ships</div>
+      <button id="switchOrientation" data-orientation="h">Vertical</button>
     </div>
   </body>
 </html>

@@ -248,3 +248,19 @@ const btn = document.getElementById("switchOrientation");
 btn.addEventListener("click", switchOrientation);
 // export function renderPlayerBoard(){}
 // export function renderComputerBoard(){}
+function toggleInstructions() {
+  const instructions = document.querySelector(".instructionsContainer");
+  const displayValue = window
+    .getComputedStyle(instructions)
+    .getPropertyValue("display");
+
+  if (displayValue === "none") {
+    instructions.style.display = "flex";
+  } else {
+    instructions.style.display = "none";
+  }
+}
+const toogleInstructionsBtns = document.querySelectorAll(".toggleInstructions");
+toogleInstructionsBtns.forEach((element) => {
+  element.addEventListener("click", toggleInstructions);
+});
