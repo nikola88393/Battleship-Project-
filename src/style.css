@@ -81,9 +81,9 @@ button{
 .cellPlayer.ship{
     background-color: var(--blue);
 }
-.cellComputer.ship{
+/* .cellComputer.ship{
     background-color:var(--blue);
-}
+} */
 #errorDisplay{
     border: 1px solid red;
     width: 500px;
@@ -95,28 +95,44 @@ button{
 .cellComputer.hit::before,
 .cellPlayer.hit::before{
     position: absolute;
-    left: 10px;
-    right: 0;
-    bottom: 0;
-    top: 0px;
-    content: "O";
-    font-size: 40px;
-    width: 50px;
-    height: 50px;
-    /* background-color: aqua; */
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    /* background-color: black; */
+    border: 0px solid var(--blue);
+    opacity: 0;
+    border-radius: 50%;
+    animation: growBorder 0.2s ease-in forwards; 
 }
+
+@keyframes growBorder {
+    from {
+        border-width: 0px; /* Start with no border */
+        opacity: 0;
+    }
+    to {
+        border-width: 5px; /* Grow to the desired border width */
+        opacity: 1;
+    }
+}
+
 .cellComputer.hit.ship::before,
 .cellPlayer.hit.ship::before{
     position: absolute;
-    left: 10px;
-    right: 0;
-    bottom: 0;
-    top: 0px;
-    content: "X";
+    /* left: 10px; */
+    /* right: 0; */
+    /* bottom: 0; */
+    /* top: 0px; */
+    content: "";
     font-size: 40px;
-    width: 50px;
-    height: 50px;
-    /* background-color: aqua; */
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
 }
 /* .cellPlayer.hit{
     background-color: black;
