@@ -16,33 +16,6 @@ export function drawGrid() {
   }
 }
 
-// The function below was used for showing the enemy ships while developing and testing the game
-
-// export function markComputerShips(input) {
-//   const containerComputer = document.querySelectorAll(".cellComputer");
-//   const coordinates = input.slice();
-//   while (coordinates.length > 0) {
-//     if (coordinates[0].orientation === "h") {
-//       for (
-//         let i = coordinates[0].y;
-//         i < coordinates[0].y + coordinates[0].shipSize;
-//         i++
-//       ) {
-//         containerComputer[coordinates[0].x * 10 + i].classList.add("ship");
-//       }
-//     } else {
-//       for (
-//         let i = coordinates[0].x;
-//         i < coordinates[0].x + coordinates[0].shipSize;
-//         i++
-//       ) {
-//         containerComputer[i * 10 + coordinates[0].y].classList.add("ship");
-//       }
-//     }
-//     coordinates.shift();
-//   }
-// }
-
 export function switchOrientation() {
   const btn = document.getElementById("switchOrientation");
 
@@ -239,17 +212,8 @@ export const addClassHitToComputerShip = (n) => {
   computerGrid.classList.add("ship");
 };
 
-// const playerCells = document.querySelectorAll(".cellPlayer");
-// playerCells.forEach((cell) => {
-//   cell.addEventListener("mouseover", () => {
-//     cell.classList.add("hover");
-//   });
-// });
-
 const btn = document.getElementById("switchOrientation");
 btn.addEventListener("click", switchOrientation);
-// export function renderPlayerBoard(){}
-// export function renderComputerBoard(){}
 function toggleInstructions() {
   const instructions = document.querySelector(".instructionsContainer");
   const displayValue = window
