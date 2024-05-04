@@ -1,8 +1,4 @@
 :root{
-    /* --pink:#CBBAED;
-    --cyan:#01FDF6;
-    --orange: #FB5012;
-    --blue: #62D6F0; */
     --mainBackground: #ebeffa;
     --boxBackground: #fafbff;
     --blue: #0164fc;
@@ -18,15 +14,12 @@ header {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    /* height: 100%; */
-    /* border: 1px solid red; */
     font-size: 36px;
     color: var(--blue);
 }
 body{
-    /* padding: 0 50px 0 50px; */
     background-color: var(--mainBackground);
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -50,11 +43,9 @@ button:hover{
 #gameContainer{
     display: flex;
     position: relative;
-    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    /* height: 100%; */
     width: 90%;
     gap: 30px;
     padding: 30px 0 30px 0;
@@ -63,13 +54,11 @@ button:hover{
     border-radius: 10px;
     box-shadow: var(--shadow);
     margin-bottom: 25px;
-    /* margin: 50px 50px 50px 50px; */
 }
 #announcerContainer{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid red; */
     padding: 10px 0 10px 0;
     background-color: var(--boxBackground);
     border-radius: 10px;
@@ -78,7 +67,6 @@ button:hover{
     gap: 20px;
 }
 .gameControls{
-    /* border: 1px solid red; */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -104,9 +92,6 @@ button:hover{
 .cellComputer, .cellPlayer {
     border: 1px solid var(--blue);
 }
-/* .cellPlayer:hover{
-    background-color: aqua;
-} */
 .cellComputer{
     cursor: pointer;
     background-color: transparent;
@@ -116,11 +101,9 @@ button:hover{
     background-color: rgba(46, 46, 46, 0.4);
 }
 .cellPlayer.ship{
-    /* background-color: gray; */
     position: relative;
 }
 .cellPlayer.ship::after{
-    /* background-color: gray; */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -150,7 +133,6 @@ button:hover{
     transform: translate(-50%, -50%);
     width: 25px;
     height: 25px;
-    /* background-color: black; */
     border: 0px solid var(--blue);
     opacity: 0;
     border-radius: 50%;
@@ -159,11 +141,11 @@ button:hover{
 
 @keyframes growBorder {
     from {
-        border-width: 0px; /* Start with no border */
+        border-width: 0px;
         opacity: 0;
     }
     to {
-        border-width: 5px; /* Grow to the desired border width */
+        border-width: 5px;
         opacity: 1;
     }
 }
@@ -171,10 +153,6 @@ button:hover{
 .cellComputer.hit.ship::before,
 .cellPlayer.hit.ship::before{
     position: absolute;
-    /* left: 10px; */
-    /* right: 0; */
-    /* bottom: 0; */
-    /* top: 0px; */
     content: "";
     font-size: 40px;
     width: 25px;
@@ -211,28 +189,18 @@ button:hover{
     font-size: 30px;
 }
 
-/* .hover {
-    background-color: green;
-    cursor: pointer;
-} */
-
 .hoverInvalid,
 .hover {
-    /* background-color: red; */
     position: relative;
     cursor: pointer;
 }
 .hover::before {
-    /* background-color: green; */
     cursor: pointer;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* width: 25px;
-    height: 25px; */
     content: "\2690";
-    /* content: "\2690"; */
     font-size: 55px; 
     color: var(--blue) ;
     text-align: center;
@@ -242,10 +210,7 @@ button:hover{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* width: 25px;
-    height: 25px; */
     content: '\2715';
-    /* content: "\2690"; */
     font-size: 50px; 
     font-weight: 700;
     color: red ;
@@ -263,7 +228,6 @@ button:hover{
     z-index: 4;
 }
 .instructions{
-    /* position: relative; */
     background-color: var(--boxBackground);
     display: flex;
     align-items: center;
@@ -298,7 +262,6 @@ button:hover{
     transform: translate(-50%);
     width: 20px;
     height: 20px;
-    /* background-color: black; */
     border: 4px solid var(--blue);
     border-radius: 50%;
 }
@@ -311,7 +274,6 @@ button:hover{
     left: -20px;
     top: -20%;
     transform: translate(-50%);
-    /* font-size: 40px; */
     width: 20px;
     height: 20px;
     background-color: red;
